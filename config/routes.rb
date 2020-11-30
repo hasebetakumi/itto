@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     root 'mains#index'
     
     resources :reports, only: :index
+    resources :shools, only: [:new, :create]
 end
