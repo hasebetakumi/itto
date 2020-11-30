@@ -6,6 +6,7 @@ class SchoolsController < ApplicationController
     
     def create
         School.create(school_params)
+        @schools = School.all
     end
     
     private
