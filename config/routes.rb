@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     
     resources :reports, only: :index
     resources :schools, only: [:index, :create]
+    resources :students, only: [:index, :create]
 end
