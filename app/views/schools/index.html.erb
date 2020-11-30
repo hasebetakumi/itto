@@ -1,0 +1,17 @@
+<%= form_for @school, remote: true do |f| %>
+    <div class="form_group">
+        <%= f.label :classifying, '種別'%>
+        <%= f.select :classifying, {'小学生': 1, '中学生': 2,'高校生': 3}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+    </div>
+    <div class="form_group">
+        <%= f.label :school, '学校名'%>
+        <%= f.text_field :school, class: 'form-control'%>
+    </div>
+    <div class="form_group">
+        <%= f.submit '追加', class: 'btn_submit' %>
+    </div>
+<% end %>
+
+<ul class = "all_school">
+    <%= render @schools%>
+</ul>
