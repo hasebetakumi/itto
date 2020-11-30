@@ -1,4 +1,4 @@
-<%= form_for @school do |f| %>
+<%= form_for @school, remote: true do |f| %>
     <div class="form_group">
         <%= f.label :classifying, '種別'%>
         <%= f.select :classifying, {'小学生': 1, '中学生': 2,'高校生': 3}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
