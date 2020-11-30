@@ -6,7 +6,6 @@ class SchoolsController < ApplicationController
     
     def create
         School.create(school_params)
-        redirect_to schools_path
     end
     
     private
