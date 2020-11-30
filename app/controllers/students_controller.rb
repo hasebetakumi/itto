@@ -5,8 +5,8 @@ class StudentsController < ApplicationController
     end
     
     def create
-        School.create(student_params)
-        @schools = School.all
+        Student.create(student_params)
+        @students = Student.all
     end
     
     private
