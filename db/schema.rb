@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_043308) do
+ActiveRecord::Schema.define(version: 2020_12_01_002054) do
+
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "classifying"
+    t.integer "student_id"
+    t.integer "user_id"
+    t.integer "subject_id"
+    t.integer "class_textbook"
+    t.integer "class_start_page"
+    t.integer "class_end_page"
+    t.text "report"
+    t.integer "home_textbook"
+    t.integer "home_start_page"
+    t.integer "home_end_page"
+    t.integer "understanding"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "schools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "classifying"
