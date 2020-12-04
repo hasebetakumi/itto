@@ -23,7 +23,30 @@
         <%= f.submit '追加', class: 'btn_submit' %>
     </div>
 <% end %>   
+
+<p>生徒一覧</p>
     
-<ul class = "all_student">
-    <%= render @students %>
-</ul>
+<table border="1" class = "elementary_student">
+    <thead>
+        <%= render partial: "students/table_index" %>
+    </thead>
+    <tbody class="elementary_student_body">
+        <%= render partial: "students/elementary_student", collection: @elementary_students %>
+    </tbody>
+</table>
+<table border="1" class = "junior_high_school_student">
+    <thead>
+        <%= render partial: "students/table_index" %>
+    </thead>
+    <tbody class="junior_high_school_student_body">
+        <%= render partial: "students/junior_high_school_student", collection: @junior_high_school_students %>
+    </tbody>
+</table>
+<table border="1" class = "high_school_student">
+    <thead>
+        <%= render partial: "students/table_index" %>
+    </thead>
+    <tbody class="high_school_student_body">
+        <%= render partial: "students/high_school_student", collection: @high_school_students %>
+    </tbody>
+</table>
