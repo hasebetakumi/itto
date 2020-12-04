@@ -1,12 +1,16 @@
 class StudentsController < ApplicationController
     def index
-        @students = Student.all
+        @elementary_students = Student.where(classifying: 1)
+        @junior_high_school_students = Student.where(classifying: 2)
+        @high_school_students = Student.where(classifying: 3)
         @student = Student.new
     end
     
     def create
         Student.create(student_params)
-        @students = Student.all
+        @elementary_students = Student.where(classifying: 1)
+        @junior_high_school_students = Student.where(classifying: 2)
+        @high_school_students = Student.where(classifying: 3)
     end
     
     private
