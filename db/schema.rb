@@ -48,7 +48,11 @@ ActiveRecord::Schema.define(version: 2020_12_04_070209) do
     t.integer "classifying"
     t.integer "grade"
     t.integer "school_id"
-    t.string "student"
+    t.integer "year"
+    t.string "family_name"
+    t.string "given_name"
+    t.string "family_name_kana"
+    t.string "given_name_kana"
     t.integer "student_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
