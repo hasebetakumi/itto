@@ -5,7 +5,7 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.integer :grade
       t.integer :school_id
       t.string :student
-      t.integer :student_type
+      t.integer :student_type_id
       t.timestamps
     end
   end
