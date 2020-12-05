@@ -12,8 +12,20 @@
         <%= f.collection_select :school_id, School.all, :id, :school, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
     </div>
     <div class="form_group">
-        <%= f.label :student, '生徒氏名'%>
-        <%= f.text_field :student, class: 'form-control'%>
+        <%= f.label :family_name, '姓'%>
+        <%= f.text_field :family_name, class: 'form-control'%>
+    </div>
+    <div class="form_group">
+        <%= f.label :given_name, '名'%>
+        <%= f.text_field :given_name, class: 'form-control'%>
+    </div>
+    <div class="form_group">
+        <%= f.label :family_name_kana, '姓（ふりがな）'%>
+        <%= f.text_field :family_name_kana, class: 'form-control'%>
+    </div>
+    <div class="form_group">
+        <%= f.label :given_name_kana, '名（ふりがな）'%>
+        <%= f.text_field :given_name_kana, class: 'form-control'%>
     </div>
     <div class="form_group">
         <%= f.label :student_type_id, '生徒タイプ'%>
