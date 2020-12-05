@@ -12,7 +12,7 @@
         <%= f.collection_select :school_id, School.all, :id, :school, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
     </div>
     <div class="form_group">
-        <%= f.label :year, '生まれ年'%>
+        <%= f.label :year, '年度'%>
         <%= f.f.number_field :year , class: 'form-control' %>
     </div>
     <div class="form_group">
