@@ -12,6 +12,14 @@
     </div>
 <% end %>
 
-<ul class = "all_school">
-    <%= render @schools%>
-</ul>
+<table border="1" class = "all_school">
+    <thead>
+        <tr>
+            <th>学校ID</th>
+            <th>種別</th>
+            <th>学校名</th>
+        </tr>
+    <tbody class="all_school_body">
+        <%= render @schools%>
+    </tbody>
+</table>
