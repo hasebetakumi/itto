@@ -16,8 +16,8 @@
         <%= f.text_field :student, class: 'form-control'%>
     </div>
     <div class="form_group">
-        <%= f.label :student_type, '生徒タイプ'%>
-        <%= f.select :student_type, {'完璧主義者タイプ': 1, '献身家タイプ': 2,'達成者タイプ': 3,'芸術家タイプ': 4,'研究者タイプ': 5,'堅実家タイプ': 6,'楽天家タイプ': 7,'統率者タイプ': 8,'調停者タイプ': 9,'未定': 10}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+        <%= f.label :student_type_id, '生徒タイプ'%>
+        <%= f.collection_select :student_type_id,StudentType.all, :id, :student_type, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
     </div>
     <div class="form_group">
         <%= f.submit '追加', class: 'btn_submit' %>
