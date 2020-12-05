@@ -1,8 +1,8 @@
 class StudentsController < ApplicationController
     def index
-        @elementary_students = Student.where(classifying: 1).includes(:school)
-        @junior_high_school_students = Student.where(classifying: 2).includes(:school)
-        @high_school_students = Student.where(classifying: 3).includes(:school)
+        @elementary_students = Student.where(classifying: 1).includes(:school, :student_type)
+        @junior_high_school_students = Student.where(classifying: 2).includes(:school, :student_type)
+        @high_school_students = Student.where(classifying: 3).includes(:school, :student_type)
         @student = Student.new
     end
     
