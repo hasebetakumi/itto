@@ -13,19 +13,19 @@
     </div>
     <div class="form_group">
         <%= f.label :year, '年度'%>
-        <%= f.number_field :year , class: 'form-control' %>
+        <%= f.number_field :year , class: 'form-control', min: 2000, max: 2015, required: true %>
     </div>
     <div class="form_group">
         <%= f.label :family_name, '姓'%>
-        <%= f.text_field :family_name, class: 'form-control'%>
+        <%= f.text_field :family_name, class: 'form-control', required: true %>
     </div>
     <div class="form_group">
         <%= f.label :given_name, '名'%>
-        <%= f.text_field :given_name, class: 'form-control'%>
+        <%= f.text_field :given_name, class: 'form-control', required: true %>
     </div>
     <div class="form_group">
         <%= f.label :family_name_kana, 'せい'%>
-        <%= f.text_field :family_name_kana, class: 'form-control'%>
+        <%= f.text_field :family_name_kana, class: 'form-control', required: true %>
     </div>
     <div class="form_group">
         <%= f.label :given_name_kana, 'めい'%>
