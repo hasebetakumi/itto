@@ -1,7 +1,7 @@
 <%= form_for @student, remote: true do |f| %>
     <div class="form_group">
         <%= f.label :classifying, '種別'%>
-        <%= f.select :classifying, {'小学生': 1, '中学生': 2,'高校生': 3}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+        <%= f.select :classifying, {'小学': 1, '中学': 2,'高校': 3} , {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
     </div>
     <div class="form_group">
         <%= f.label :grade, '学年'%>
@@ -29,7 +29,7 @@
     </div>
     <div class="form_group">
         <%= f.label :given_name_kana, 'めい'%>
-        <%= f.text_field :given_name_kana, class: 'form-control'%>
+        <%= f.text_field :given_name_kana, class: 'form-control', required: true %>
     </div>
     <div class="form_group">
         <%= f.label :student_type_id, '生徒タイプ'%>
