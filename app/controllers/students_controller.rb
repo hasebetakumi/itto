@@ -15,6 +15,6 @@ class StudentsController < ApplicationController
     
     private
     def student_params
-        params.require(:student).permit(:classifying, :grade, :school_id, :student, :student_type_id)
+        params.require(:student).permit(:classifying, :grade, :school_id, :year, :family_name, :given_name, :family_name_kana, :given_name_kana, :student_type_id)
     end
 end
