@@ -3,6 +3,6 @@ class Student < ApplicationRecord
     belongs_to :student_type
     
     def name
-        "#{family_name} #{first_name}"
+        "#{family_name} #{given_name}"
     end
 end
