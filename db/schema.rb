@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_010822) do
   end
 
   create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "classifying"
+    t.integer "classifying_id"
     t.integer "student_id"
     t.integer "user_id"
     t.integer "subject_id"
