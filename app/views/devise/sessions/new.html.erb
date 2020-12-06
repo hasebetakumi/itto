@@ -5,9 +5,9 @@
       <h2>ログイン</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <% if alert %>
-          <p class='alert alert-danger'><%= alert %></p>
-        <% end %>
+        <!--<% if alert %>-->
+        <!--  <p class='alert alert-danger'><%= alert %></p>-->
+        <!--<% end %>-->
 
         <div>
           <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'input form-control' %>
@@ -32,7 +32,7 @@
       <% end %>
 
       <div class='login_link'>
-      
+        <%= link_to "新規登録", new_user_registration_path %>
       </div>
     </div>
   </div>
