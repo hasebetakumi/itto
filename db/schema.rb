@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_05_075505) do
+ActiveRecord::Schema.define(version: 2020_12_06_005530) do
 
   create_table "classifyings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "classifying"
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(version: 2020_12_05_075505) do
     t.string "family_name_kana"
     t.string "given_name_kana"
     t.integer "student_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "subject"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
