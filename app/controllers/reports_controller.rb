@@ -12,6 +12,10 @@ class ReportsController < ApplicationController
         redirect_to reports_path
     end
     
+    def search
+        
+    end
+    
     private
     def create_params
         params.require(:report).permit(:classifying_id, :student_id, :subject_id, :report).merge(user_id: current_user.id)
