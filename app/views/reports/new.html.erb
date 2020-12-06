@@ -1,15 +1,15 @@
 <%= form_for @report do |f| %>
     <div class="report_form_group">
-        <%= f.label :classifying, '種別'%>
-        <%= f.select :classifying, {'小学生': 1, '中学生': 2,'高校生': 3}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+        <%= f.label :classifying_id, '種別'%>
+        <%= f.collection_select :classifying_id, Classifying.all, :id, :classifying, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
     </div>
     <div class="report_form_group">
         <%= f.label :student_id, '生徒'%>
-        <%= f.collection_select :student_id, Student.all, :id, :student, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+        <%= f.collection_select :student_id, Student.all.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
     </div>
     <div class="report_form_group">
         <%= f.label :subject_id, '教科'%>
-        <%= f.select :subject_id, {'英語': 1, '数学': 2, '国語': 3, '理科': 4, '社会': 5}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+        <%= f.collection_select :subject_id, Subject.all, :id, :subject, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
     </div>
     <div class="report_form_group">
         <%= f.label :report, '本文'%>

@@ -1,9 +1,9 @@
 <li class="report">
-    <%= report.id %>
-    <%= report.classifying %>
-    <%= report.student_id %>
-    <%= report.user_id %>
-    <%= report.subject_id %>
-    <%= report.report %>
-    <%= report.created_at %>
+    <%= report.classifying.classifying %>
+    <%= report.student.family_name %>
+    <%= report.student.given_name %>
+    <%= report.user.name %>
+    <%= report.subject.subject %><br>
+    <%= report.report %><br>
+    <%= report.created_at.to_s(:datetime_jp) %>
 </li>
