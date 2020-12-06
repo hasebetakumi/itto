@@ -5,5 +5,5 @@
     <%= report.user.name %>
     <%= report.subject.subject %><br>
     <%= report.report %><br>
-    <%= report.created_at %>
+    <%= report.created_at.to_s(:datetime_jp) %>
 </li>
