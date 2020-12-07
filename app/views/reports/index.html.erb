@@ -1,5 +1,25 @@
 <%= link_to "スクレポ登録", new_report_path %>
 <%= link_to "メインメニュー", root_path %>
+
+<form method="get" action="/reports">
+    <select name="user_keyword">
+        <option value="">選択してください</option>
+        <% @users.each do |user| %>
+            <option value="<%= user.id %>"><%= user.name %></option>
+        <% end %>
+    </select>
+    <select name="student_keyword">
+        <option value="">選択してください</option>
+        <% @students.each do |student| %>
+            <option value="<%= student.id %>"><%= student.name %></option>
+        <% end %>
+    </select>
+    <p><input type="submit" value="検索"></p>
+</form>
+<%= link_to "一覧表示", reports_path %>
+
+
 <ul class="all_report">
     <%= render @reports %>
 </ul>
+<%= paginate(@reports) %>
