@@ -1,6 +1,10 @@
 class ReportsController < ApplicationController
     def index
-        @reports = Report.where(user_id: params[:keyword]).order(created_at: :DESC)
+        if params[:keyword]
+            @reports = Report.where(user_id: params[:keyword]).order(created_at: :DESC)
+        else
+            @reports = Report.all.order(created_at: :DESC)
+        end
         @users = User.all
     end
     
