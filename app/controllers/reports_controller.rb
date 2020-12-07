@@ -1,14 +1,14 @@
 class ReportsController < ApplicationController
     def index
         if params[:user_keyword].present? and params[:student_keyword].present?
-            reports = Report.where(user_id: params[:user_keyword]).order(created_at: :DESC)
-            @reports = reports.where(student_id: params[:student_keyword]).order(created_at: :DESC)
+            reports = Report.where(user_id: params[:user_keyword]).order(created_at: :DESC).page(params[:page]).per(5)
+            @reports = reports.where(student_id: params[:student_keyword]).order(created_at: :DESC).page(params[:page]).per(5)
         elsif params[:user_keyword].present? and params[:student_keyword].blank?
-            @reports = Report.where(user_id: params[:user_keyword]).order(created_at: :DESC)
+            @reports = Report.where(user_id: params[:user_keyword]).order(created_at: :DESC).page(params[:page]).per(5)
         elsif params[:user_keyword].blank? and params[:student_keyword].present?
-            @reports = Report.where(student_id: params[:student_keyword]).order(created_at: :DESC)
+            @reports = Report.where(student_id: params[:student_keyword]).order(created_at: :DESC).page(params[:page]).per(5)
         else    
-            @reports = Report.all.order(created_at: :DESC)
+            @reports = Report.all.order(created_at: :DESC).page(params[:page]).per(5)
         end
         
         @users = User.all
