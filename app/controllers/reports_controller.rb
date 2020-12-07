@@ -1,11 +1,18 @@
 class ReportsController < ApplicationController
     def index
-        if params[:keyword]
-            @reports = Report.where(user_id: params[:keyword]).order(created_at: :DESC)
-        else
+        if params[:user_keyword].present? and params[:student_keyword].present?
+            reports = Report.where(user_id: params[:user_keyword]).order(created_at: :DESC)
+            @reports = reports.where(student_id: params[:student_keyword]).order(created_at: :DESC)
+        elsif params[:user_keyword].present? and params[:student_keyword].blank?
+            @reports = Report.where(user_id: params[:user_keyword]).order(created_at: :DESC)
+        elsif params[:user_keyword].blank? and params[:student_keyword].present?
+            @reports = Report.where(student_id: params[:student_keyword]).order(created_at: :DESC)
+        else    
             @reports = Report.all.order(created_at: :DESC)
         end
+        
         @users = User.all
+        @students = Student.all
     end
     
     def new
