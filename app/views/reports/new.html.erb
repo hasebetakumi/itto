@@ -16,6 +16,10 @@
         <%= f.text_area :report, class: 'form-control' %>
     </div>
     <div class="form_group">
+        <%= f.label :understanding, '理解度'%>
+        <%= f.number_field :understanding , class: 'form-control', min: 1, max: 4, required: true %>
+    </div>
+    <div class="form_group">
         <%= f.submit '送信', class: 'btn_submit' %>
     </div>
 <% end %>
