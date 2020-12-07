@@ -26,6 +26,6 @@ class ReportsController < ApplicationController
     
     private
     def create_params
-        params.require(:report).permit(:student_id, :subject_id, :report, :understanding).merge(user_id: current_user.id)
+        params.require(:report).permit(:classifying_id, :student_id, :subject_id, :report, :understanding).merge(user_id: current_user.id)
     end
 end

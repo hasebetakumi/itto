@@ -1,5 +1,9 @@
 <%= form_for @report do |f| %>
     <div class="report_form_group">
+        <%= f.label :classifying_id, '種別'%>
+        <%= f.collection_select :classifying_id, Classifying.all, :id, :classifying, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+    </div>
+    <div class="report_form_group">
         <%= f.label :student_id, '生徒'%>
         <%= f.collection_select :student_id, Student.all.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
     </div>
