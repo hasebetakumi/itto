@@ -13,3 +13,84 @@
  *= require_tree .
  *= require_self
  */
+ 
+@font-face {
+    font-family: 'my-font';
+    src: url('mgenplus-1c-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/*application*/
+.header{
+    background-color: #3399FF;
+    height: 50px;
+}
+.header{
+    display: flex;
+    justify-content: flex-end;   
+}
+.login_logout{
+    height: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+    margin-right:15px;
+}
+.btn_login_logout{
+    color: white;
+    background-color: #66CCFF;
+    text-decoration: none;
+    font-size:18px;
+    line-height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/*application*/
+
+
+/*新規登録画面*/
+.signup_body{
+    font-family: 'my-font';
+    background-color: #99CCFF;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+}
+.page_title{
+    margin-top:30px;
+}
+.log-in-inner{
+    background-color:#66CCFF;
+    width:50%;
+    margin: 0 auto;
+    font-size:20px;
+    border-radius: 20px;
+}
+.login_title{
+    padding-top: 20px;
+}
+.form-group{
+    padding-bottom:24px;
+    display: flex;
+    flex-direction: column;
+    width:75%;
+    margin: 0 auto;
+}
+.form-control{
+    padding:7px;
+    border-radius: 10px;}
+.btn-group{
+    padding:15px;
+}
+.btn_signup{
+    font-size:18px;
+    padding-left:20px;
+    padding-right:20px;
+    border-radius: 7px;
+}
+/*新規登録画面*/
+
+
+/*ログイン画面*/
+
+/*ログイン画面*/
