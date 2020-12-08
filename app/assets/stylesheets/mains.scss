@@ -1,3 +1,31 @@
 // Place all the styles related to the mains controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main_body{
+    font-family: 'my-font';
+    background-color: #99CCFF;
+    margin: 0;
+    text-align: center;
+}
+.menu_table{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height:2px
+}
+.main_menu_table{
+    margin-right:50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.menu_item{
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    padding: 10px 60px 10px 60px;
+    border-radius: 15px;
+}
