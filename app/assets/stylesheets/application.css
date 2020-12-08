@@ -24,16 +24,22 @@
 .header{
     background-color: #3399FF;
     height: 50px;
-}
-.header{
     display: flex;
-    justify-content: flex-end;   
+    justify-content: space-between;   
+}
+.user_name{
+    font-size: 15px;
+    height: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-left:30px;
 }
 .login_logout{
     height: 100%;
     display: flex;
     justify-content: center; 
-    align-items: center;  
+    align-items: center;
     margin-right:15px;
 }
 .btn_login_logout{

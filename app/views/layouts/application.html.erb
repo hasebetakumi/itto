@@ -10,12 +10,18 @@
   </head>
   
   <header  class="header">
+    <div class="user_name">
+      <% if user_signed_in? %>
+        <a class="user_name_item"><%= current_user.name %>　でログイン中</a>
+      <% else %>
+      <% end %>
+    </div>
     <div class='login_logout'>
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path , method: :delete, class: "btn_login_logout" %>
-    <% else %>
-      <%= link_to "ログイン", new_user_session_path, class: "btn_login_logout" %>
-    <% end %>
+      <% if user_signed_in? %>
+        <%= link_to "ログアウト", destroy_user_session_path , method: :delete, class: "btn_login_logout" %>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, class: "btn_login_logout" %>
+      <% end %>
     </div>
     
   </header>

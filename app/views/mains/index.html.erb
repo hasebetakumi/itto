@@ -1,4 +1,12 @@
-<%= link_to "授業報告", reports_path %>
-<%= link_to "学校追加", schools_path %>
-<%= link_to "生徒追加", students_path %>
-
+<body class="main_body">
+    <h2 class="main_menu_title">メインメニュー</h2>
+    <div class="menu_table">
+        <div class="main_menu_table">
+            <%= link_to "授業報告", reports_path, class: "menu_item" %>
+        </div>
+        <div class="main_menu_table">
+            <%= link_to "学校追加", schools_path, class: "menu_item" %><br>
+            <%= link_to "生徒追加", students_path, class: "menu_item" %>
+        </div>
+    </div>
+    
