@@ -8,10 +8,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
+  <header  class="header">
+    <div class='login_logout'>
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path , method: :delete, class: "btn_login_logout" %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn_login_logout" %>
+    <% end %>
+    </div>
+    
+  </header>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
