@@ -25,7 +25,8 @@
     background-color: #3399FF;
     height: 50px;
     display: flex;
-    justify-content: space-between;   
+    justify-content: space-between;
+    border-bottom : solid 1px #333; 
 }
 .user_name{
     font-size: 15px;
@@ -41,6 +42,8 @@
     justify-content: center; 
     align-items: center;
     margin-right:15px;
+    border-left : solid 1px #333; 
+    border-right : solid 1px #333; 
 }
 .btn_login_logout{
     color: white;
