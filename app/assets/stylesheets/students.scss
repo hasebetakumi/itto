@@ -1,3 +1,45 @@
 // Place all the styles related to the students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// students/index 生徒追加フォーム
+.student_body{
+    font-family: 'my-font';
+    background-color: #99CCFF;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+}
+.student_title{
+    margin: 0px;
+    margin-top: 5px;
+}
+.student_form{
+    background-color:#66CCFF;
+    width:50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    border : solid 1px #333 ; 
+    display: flex;
+    justify-content: center;
+    }
+.form_group.student_form_group{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.name_group{
+    display: flex;
+}
+.btn_student{
+    margin-bottom: 5px;
+}
+// students/index 生徒追加フォーム
+
+
+// students/index 生徒一覧
+.student_table{
+    margin: 20px auto;
+    width:75%;
+}
+// students/index 生徒一覧
