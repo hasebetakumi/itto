@@ -1,3 +1,24 @@
 // Place all the styles related to the reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// reports/new
+.report_new_body{
+    font-family: 'my-font';
+    background-color: #99CCFF;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+}
+.report_form{
+    background-color:#66CCFF;
+    width:75%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    border : solid 1px #333 ; 
+}
+.report_form_group{
+    margin-bottom: 10px;
+}
+// reports/new
