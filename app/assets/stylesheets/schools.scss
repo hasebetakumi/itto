@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// schools/index
 .school_body{
     font-family: 'my-font';
     background-color: #99CCFF;
@@ -15,11 +16,18 @@
     margin: 0 auto;
     margin-top: 20px;
     border-radius: 20px;
+    border : solid 1px #333 ; 
+}
+.school_title{
+    padding-top: 10px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .form_group.school_form_group{
     padding-top: 10px;
 }
-.all_table{
-    margin: 0;
+.all_school{
+    margin: 20px auto;
     width:50%;
     }
+// schools/index
