@@ -1,25 +1,32 @@
-<%= form_for @school, remote: true do |f| %>
-    <div class="form_group">
-        <%= f.label :classifying, '種別'%>
-        <%= f.select :classifying, {'小学生': 1, '中学生': 2,'高校生': 3}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+<body class="school_body">
+    <div class="school_form">
+        <p>学校追加</p>
+        <%= form_for @school, remote: true do |f| %>
+            <div class="form_group school_form_group">
+                <%= f.label :classifying, '種別'%>
+                <%= f.select :classifying, {'小学生': 1, '中学生': 2,'高校生': 3}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+            </div>
+            <div class="form_group school_form_group">
+                <%= f.label :school, '学校名'%>
+                <%= f.text_field :school, class: 'form-control'%>
+            </div>
+            <div class="btn-group">
+                <%= f.submit '追加', class: 'btn_signup' %>
+            </div>
+        <% end %>
     </div>
-    <div class="form_group">
-        <%= f.label :school, '学校名'%>
-        <%= f.text_field :school, class: 'form-control'%>
+    
+    <div class="school_table">
+        <table border="1" class = "all_school">
+            <thead>
+                <tr>
+                    <th>学校ID</th>
+                    <th>種別</th>
+                    <th>学校名</th>
+                </tr>
+            <tbody class="all_school_body">
+                <%= render @schools%>
+            </tbody>
+        </table>
     </div>
-    <div class="form_group">
-        <%= f.submit '追加', class: 'btn_submit' %>
-    </div>
-<% end %>
-
-<table border="1" class = "all_school">
-    <thead>
-        <tr>
-            <th>学校ID</th>
-            <th>種別</th>
-            <th>学校名</th>
-        </tr>
-    <tbody class="all_school_body">
-        <%= render @schools%>
-    </tbody>
-</table>
+</body>
