@@ -58,7 +58,7 @@
 /*新規登録画面*/
 .signup_body{
     font-family: 'my-font';
-    background-color: #99CCFF;
+    background-color: #EEEEEE;
     text-align: center;
     height: 100%;
     margin: 0;
@@ -67,12 +67,13 @@
     margin-top:30px;
 }
 .log-in-inner{
-    background-color:#66CCFF;
+    background-color: white;
     width:50%;
     margin: 0 auto;
     font-size:20px;
     border-radius: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
 }
 .login_title{
     padding-top: 20px;
