@@ -1,25 +1,34 @@
-<%= link_to "スクレポ登録", new_report_path %>
-<%= link_to "メインメニュー", root_path %>
 
-<form method="get" action="/reports">
-    <select name="user_keyword">
-        <option value="">選択してください</option>
-        <% @users.each do |user| %>
-            <option value="<%= user.id %>"><%= user.name %></option>
-        <% end %>
-    </select>
-    <select name="student_keyword">
-        <option value="">選択してください</option>
-        <% @students.each do |student| %>
-            <option value="<%= student.id %>"><%= student.name %></option>
-        <% end %>
-    </select>
-    <p><input type="submit" value="検索"></p>
-</form>
-<%= link_to "一覧表示", reports_path %>
-
-
-<ul class="all_report">
-    <%= render @reports %>
-</ul>
-<%= paginate(@reports) %>
+<body class="report_body">
+    <div class="menu_group">
+        <%= link_to "スクレポ登録", new_report_path, class: "report_menu_item" %>
+        <%= link_to "メインメニュー", root_path, class: "report_menu_item" %>
+    </div>
+    
+    <div class="search_group">
+        <form method="get" action="/reports">
+            <select name="user_keyword" class="search_box">
+                <option value="">選択してください</option>
+                <% @users.each do |user| %>
+                    <option value="<%= user.id %>"><%= user.name %></option>
+                <% end %>
+            </select>
+            <select name="student_keyword" class="search_box">
+                <option value="">選択してください</option>
+                <% @students.each do |student| %>
+                    <option value="<%= student.id %>"><%= student.name %></option>
+                <% end %>
+            </select>
+            <p>
+                <input type="submit" value="検索" class="search_btn">
+                <%= link_to "一覧表示", reports_path, class: "search_btn" %>
+            </p>
+        </form>
+    </div>
+    
+    <div class="report_group">
+        <ul class="all_report">
+            <%= render @reports %>
+        </ul>
+        <%= paginate(@reports) %>
+    </div>
