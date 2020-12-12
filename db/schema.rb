@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_010822) do
+ActiveRecord::Schema.define(version: 2020_12_12_112309) do
 
   create_table "classifyings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "classifying"
@@ -31,6 +31,25 @@ ActiveRecord::Schema.define(version: 2020_12_06_010822) do
     t.integer "home_start_page"
     t.integer "home_end_page"
     t.integer "understanding"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "student_id"
+    t.string "user_id"
+    t.string "grade"
+    t.string "semester"
+    t.string "english"
+    t.string "math"
+    t.string "japanese"
+    t.string "science"
+    t.string "social"
+    t.string "art"
+    t.string "pe"
+    t.string "techhome"
+    t.string "music"
+    t.string "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
