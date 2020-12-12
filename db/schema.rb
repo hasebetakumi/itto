@@ -36,20 +36,20 @@ ActiveRecord::Schema.define(version: 2020_12_12_113102) do
   end
 
   create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "student_id"
-    t.string "user_id"
-    t.string "grade"
-    t.string "semester"
-    t.string "english"
-    t.string "math"
-    t.string "japanese"
-    t.string "science"
-    t.string "social"
-    t.string "art"
-    t.string "pe"
-    t.string "techhome"
-    t.string "music"
-    t.string "total"
+    t.integer "student_id"
+    t.integer "user_id"
+    t.integer "grade"
+    t.integer "semester"
+    t.integer "english"
+    t.integer "math"
+    t.integer "japanese"
+    t.integer "science"
+    t.integer "social"
+    t.integer "art"
+    t.integer "pe"
+    t.integer "techhome"
+    t.integer "music"
+    t.integer "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
