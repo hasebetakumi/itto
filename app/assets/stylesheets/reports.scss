@@ -21,6 +21,7 @@
     border-radius: 7px;
     border : solid 1px #333 ; 
     margin-right: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 .search_group{
     background-color: white;
@@ -48,6 +49,10 @@ input, select{
     font-family: 'my-font';
     font-size: 100%;
 }
+.paginate{
+    text-align: center;
+    margin-bottom: 20px;
+}
 // reports/index
 
 
@@ -61,6 +66,7 @@ ul{
     margin: 30px auto;
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 2px 2px 4px gray;
 }
 .report_info{
     border-bottom: solid 1px #333;
