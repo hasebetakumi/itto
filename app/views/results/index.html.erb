@@ -1,0 +1,28 @@
+    <div >
+        <form method="get" action="/results">
+            <select name="student_keyword" class="search_box">
+                <option value="">選択してください</option>
+                <% @students.each do |student| %>
+                    <option value="<%= student.id %>"><%= student.name %></option>
+                <% end %>
+            </select>
+            <select name="grade_keyword" class="search_box">
+                <option value="">選択してください</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option> 
+            </select>
+            <select name="semester_keyword" class="search_box">
+                <option value="">選択してください</option>
+                <% @semesters.each do |semester| %>
+                    <option value="<%= semester.id %>"><%= semester.semester %></option>
+                <% end %>
+            </select>
+            
+            <p>
+                <input type="submit" value="検索" class="search_btn">
+                <%= link_to "一覧表示", results_path, class: "search_btn" %>
+            </p>
+        </form>
+    </div>
+    

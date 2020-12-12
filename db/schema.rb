@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_12_12_113102) do
     t.integer "student_id"
     t.integer "user_id"
     t.integer "grade"
-    t.integer "semester"
+    t.integer "semester_id"
     t.integer "english"
     t.integer "math"
     t.integer "japanese"
