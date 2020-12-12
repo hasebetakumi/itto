@@ -4,7 +4,7 @@ class CreateResults < ActiveRecord::Migration[5.2]
       t.integer :student_id
       t.integer :user_id
       t.integer :grade
-      t.integer :semester
+      t.integer :semester_id
       t.integer :english
       t.integer :math
       t.integer :japanese
