@@ -115,18 +115,19 @@ ul{
 // reports/new
 .report_new_body{
     font-family: 'my-font';
-    background-color: #99CCFF;
+    background-color: #EEEEEE;
     text-align: center;
     height: 100%;
     margin: 0;
 }
 .report_form{
-    background-color:#66CCFF;
+    background-color: white;
     width:75%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 40px;
+    padding: 15px;
     border-radius: 20px;
-    border : solid 1px #333 ; 
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
 }
 .report_form_group{
     margin-bottom: 10px;
