@@ -5,7 +5,7 @@
 // students/index 生徒追加フォーム
 .student_body{
     font-family: 'my-font';
-    background-color: #99CCFF;
+    background-color: #EEEEEE;
     text-align: center;
     height: 100%;
     margin: 0;
@@ -15,14 +15,13 @@
     margin-top: 5px;
 }
 .student_form{
-    background-color:#66CCFF;
+    background-color: white;
     width:50%;
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 40px auto;
     border-radius: 20px;
-    border : solid 1px #333 ; 
     display: flex;
     justify-content: center;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
     }
 .form_group.student_form_group{
     padding-top: 5px;
@@ -38,8 +37,14 @@
 
 
 // students/index 生徒一覧
+.student_classifying{
+    font-size: 20px;
+}
 .student_table{
-    margin: 20px auto;
+    background-color: white;
+    margin: 0px auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
     width:75%;
 }
 // students/index 生徒一覧
