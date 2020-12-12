@@ -22,11 +22,11 @@
 }
 /*application*/
 .header{
-    background-color: #3399FF;
+    background-color: white;
     height: 50px;
     display: flex;
     justify-content: space-between;
-    border-bottom : solid 1px #333; 
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 .user_name{
     font-size: 15px;
@@ -42,17 +42,15 @@
     justify-content: center; 
     align-items: center;
     margin-right:15px;
-    border-left : solid 1px #333; 
-    border-right : solid 1px #333; 
 }
 .btn_login_logout{
-    color: white;
-    background-color: #66CCFF;
+    color: #66CCFF;
+    background-color: white;
     text-decoration: none;
     font-size:18px;
-    line-height: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 3px;
+    border: solid 1px;
+    border-radius: 3px;
 }
 /*application*/
 
@@ -60,7 +58,7 @@
 /*新規登録画面*/
 .signup_body{
     font-family: 'my-font';
-    background-color: #99CCFF;
+    background-color: #EEEEEE;
     text-align: center;
     height: 100%;
     margin: 0;
@@ -69,12 +67,13 @@
     margin-top:30px;
 }
 .log-in-inner{
-    background-color:#66CCFF;
+    background-color: white;
     width:50%;
     margin: 0 auto;
     font-size:20px;
     border-radius: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
 }
 .login_title{
     padding-top: 20px;
