@@ -1,24 +1,21 @@
+    <%= link_to "メインメニュー", root_path, class: "report_menu_item" %>
     <div >
         <form method="get" action="/results">
             <select name="student_keyword" class="search_box" required>
-                <option value="">選択してください</option>
+                <option value="">生徒氏名を選択してください</option>
                 <% @students.each do |student| %>
                     <option value="<%= student.id %>"><%= student.name %></option>
                 <% end %>
             </select>
-            <select name="grade_keyword" class="search_box" required>
-                <option value="">選択してください</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option> 
-            </select>
-            <select name="semester_keyword" class="search_box" required>
-                <option value="">選択してください</option>
+            <p>学年
+                <input type="radio" name="grade_keyword" value="1" required>1
+                <input type="radio" name="grade_keyword" value="2">2
+                <input type="radio" name="grade_keyword" value="3">3
+            </p>
+            <p>学期
                 <% @semesters.each do |semester| %>
-                    <option value="<%= semester.id %>"><%= semester.semester %></option>
+                    <input type="radio" name="semester_keyword" value="<%= semester.id %>" required><%= semester.semester %>
                 <% end %>
-            </select>
-            
             <p>
                 <input type="submit" value="検索" class="search_btn">
                 <%= link_to "一覧表示", results_path, class: "search_btn" %>
@@ -29,6 +26,7 @@
         <table border="1">
             <thead>
                 <tr>
+                    <th></th>
                     <th>生徒氏名</th>
                     <th>学年</th>
                     <th>学期</th>
@@ -39,7 +37,7 @@
                     <th>社会</th>
                     <th>美術</th>
                     <th>体育</th>
-                    <th>技術家庭</th>
+                    <th>技家</th>
                     <th>音楽</th>
                     <th>合計</th>
                     <th>登録者</th>
@@ -49,6 +47,9 @@
                 <%= render @results %>
             </tbody>
         </table>
+    <% elsif @aaa.present? %>
+        まずは検索をしてください。
     <% else %>
+        <!--<%= @searchparameters %>-->
         <%= link_to "新規登録", new_result_path %>
     <% end %>
