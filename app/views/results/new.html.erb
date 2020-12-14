@@ -1,17 +1,15 @@
 <%= form_for @result do |f| %>
     <div class="report_form_group">
         <%= f.label :student_id, '生徒'%>
-        <%= f.collection_select :student_id, Student.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+        <%= f.collection_select :student_id , Student.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください', selected: @searchparameters[0]}, { class: 'form-control' , required: true, disabled: true } %>
     </div>
     <div class="report_form_group">
         <%= f.label :grade, '学年' %>
-        <%= f.radio_button :grade, "1" %>1
-        <%= f.radio_button :grade, "2" %>2
-        <%= f.radio_button :grade, "3" %>3
+        <%= f.select :grade, {'1': 1, '2': 2, '3': 3}, { include_blank: '選択してください', selected: @searchparameters[1]}, { class: 'form-control' , required: true, disabled: true } %>
     </div>
     <div class="report_form_group">
         <%= f.label :semester_id, '学期'%>
-        <%= f.collection_select :semester_id, Semester.all, :id, :semester, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+        <%= f.collection_select :semester_id, Semester.all, :id, :semester, {include_blank: '選択してください', selected: @searchparameters[2]}, { class: 'form-control' , required: true, disabled: true }%>
     </div>
     <div class="report_form_group">
         <%= f.label :japanese, '国語' %>

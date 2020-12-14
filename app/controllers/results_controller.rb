@@ -2,16 +2,18 @@ class ResultsController < ApplicationController
     def index
         if params[:student_keyword].present? and params[:grade_keyword].present? and params[:semester_keyword].present?
             @results = Result.where(student_id: params[:student_keyword], grade: params[:grade_keyword], semester_id: params[:semester_keyword]).includes(:student, :user, :semester)
+            @searchparameters = [params[:student_keyword], params[:grade_keyword], params[:semester_keyword]]
         else
             @aaa = 1
         end
-        # @searchparameters = [Student.find(params[:student_keyword]), params[:grade_keyword], params[:semester_keyword]]
+        
         @students = Student.all
         @semesters = Semester.all
     end
     
     def new
         @result = Result.new
+        @searchparameters = [params[:student_keyword], params[:grade_keyword], params[:semester_keyword]]
     end
     
     def create
