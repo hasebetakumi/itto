@@ -26,11 +26,13 @@ class TestresultsController < ApplicationController
     end
     
     def edit
-        
+        @testresult = Testresult.find(params[:id])
     end
     
     def update
-        
+        testresult = Testresult.find(params[:id])
+        testresult.update(update_params)
+        redirect_to testresults_path
     end
     
     private
@@ -39,6 +41,6 @@ class TestresultsController < ApplicationController
     end
     
     def update_params
-        
+        params.require(:testresult).permit(:english, :math, :japanese, :science, :social, :art, :pe, :techhome, :music, :fivetotal, :classrank, :graderank).merge(user_id: current_user.id)
     end
 end
