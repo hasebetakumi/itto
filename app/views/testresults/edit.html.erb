@@ -1,0 +1,72 @@
+<body class="result_new_body">
+    <div class="result_form">
+        <%= form_for @testresult do |f| %>
+            <div class="report_form_group">
+                <%= f.label :student_id, '生徒'%>
+                <%= f.collection_select :student_id , Student.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true } %>
+            </div>
+            <div class="report_form_group">
+                <%= f.label :grade, '学年' %>
+                <%= f.select :grade, {'1': 1, '2': 2, '3': 3}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true } %>
+            </div>
+            <div class="report_form_group">
+                <%= f.label :test_id, '試験名'%>
+                <%= f.collection_select :test_id, Test.all, :id, :test, {include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true }%>
+            </div>
+            <div class="result_num_form">
+                <div class="report_form_group">
+                    <%= f.label :japanese, '国語' %>
+                    <%= f.number_field :japanese , class: 'form-control', min: 0, max: 100 %>
+                    
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :social, '社会' %>
+                    <%= f.number_field :social , class: 'form-control', min: 0, max: 100 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :math, '数学' %>
+                    <%= f.number_field :math, class: 'form-control', min: 0, max: 100 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :science, '理科' %>
+                    <%= f.number_field :science , class: 'form-control', min: 0, max: 100 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :music, '音楽' %>
+                    <%= f.number_field :music , class: 'form-control', min: 0, max: 100 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :art, '美術' %>
+                    <%= f.number_field :art , class: 'form-control', min: 0, max: 100 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :pe, '体育' %>
+                    <%= f.number_field :pe, class: 'form-control', min: 0, max: 100 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :techhome, '技家' %>
+                    <%= f.number_field :techhome , class: 'form-control', min: 0, max: 100 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :english, '英語' %>
+                    <%= f.number_field :english , class: 'form-control', min: 0, max: 100 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :fivetotal, '5教科合計'%>
+                    <%= f.number_field :fivetotal , class: 'form-control', min: 0, max: 500 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :classrank, 'クラス順位'%>
+                    <%= f.number_field :classrank , class: 'form-control', min: 1, max: 500 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.label :graderank, '学年順位'%>
+                    <%= f.number_field :graderank , class: 'form-control', min: 1, max: 500 %>
+                </div>
+                <div class="report_form_group">
+                    <%= f.submit '登録', class: 'btn_signup result_new_btn' %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</body>
