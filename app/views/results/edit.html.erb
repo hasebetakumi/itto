@@ -1,81 +1,98 @@
-<%= form_for @result do |f| %>
-    <div class="report_form_group">
-        <%= f.label :japanese, '国語' %>
-        <%= f.radio_button :japanese, "1" %>1
-        <%= f.radio_button :japanese, "2" %>2
-        <%= f.radio_button :japanese, "3" %>3
-        <%= f.radio_button :japanese, "4" %>4
-        <%= f.radio_button :japanese, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :social, '社会' %>
-        <%= f.radio_button :social, "1" %>1
-        <%= f.radio_button :social, "2" %>2
-        <%= f.radio_button :social, "3" %>3
-        <%= f.radio_button :social, "4" %>4
-        <%= f.radio_button :social, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :math, '数学' %>
-        <%= f.radio_button :math, "1" %>1
-        <%= f.radio_button :math, "2" %>2
-        <%= f.radio_button :math, "3" %>3
-        <%= f.radio_button :math, "4" %>4
-        <%= f.radio_button :math, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :science, '理科' %>
-        <%= f.radio_button :science, "1" %>1
-        <%= f.radio_button :science, "2" %>2
-        <%= f.radio_button :science, "3" %>3
-        <%= f.radio_button :science, "4" %>4
-        <%= f.radio_button :science, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :music, '音楽' %>
-        <%= f.radio_button :music, "1" %>1
-        <%= f.radio_button :music, "2" %>2
-        <%= f.radio_button :music, "3" %>3
-        <%= f.radio_button :music, "4" %>4
-        <%= f.radio_button :music, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :art, '美術' %>
-        <%= f.radio_button :art, "1" %>1
-        <%= f.radio_button :art, "2" %>2
-        <%= f.radio_button :art, "3" %>3
-        <%= f.radio_button :art, "4" %>4
-        <%= f.radio_button :art, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :pe, '体育' %>
-        <%= f.radio_button :pe, "1" %>1
-        <%= f.radio_button :pe, "2" %>2
-        <%= f.radio_button :pe, "3" %>3
-        <%= f.radio_button :pe, "4" %>4
-        <%= f.radio_button :pe, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :techhome, '技家' %>
-        <%= f.radio_button :techhome, "1" %>1
-        <%= f.radio_button :techhome, "2" %>2
-        <%= f.radio_button :techhome, "3" %>3
-        <%= f.radio_button :techhome, "4" %>4
-        <%= f.radio_button :techhome, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :english, '英語' %>
-        <%= f.radio_button :english, "1" %>1
-        <%= f.radio_button :english, "2" %>2
-        <%= f.radio_button :english, "3" %>3
-        <%= f.radio_button :english, "4" %>4
-        <%= f.radio_button :english, "5" %>5
-    </div>
-    <div class="report_form_group">
-        <%= f.label :total, '合計'%>
-        <%= f.number_field :total , class: 'form-control', min: 9, max: 45 %>
-    </div>
-    <div class="report_form_group">
-        <%= f.submit '登録', class: 'btn_signup' %>
-    </div>
-<% end %>
+<body class="result_new_body">
+    <div class="result_form">
+        <%= form_for @result do |f| %>
+            <div class="report_form_group">
+                <%= f.label :student_id, '生徒'%>
+                <%= f.collection_select :student_id , Student.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true } %>
+            </div>
+            <div class="report_form_group">
+                <%= f.label :grade, '学年' %>
+                <%= f.select :grade, {'1': 1, '2': 2, '3': 3}, { include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true } %>
+            </div>
+            <div class="report_form_group">
+                <%= f.label :semester_id, '学期'%>
+                <%= f.collection_select :semester_id, Semester.all, :id, :semester, {include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true }%>
+            </div>
+        </div>
+        <div class="result_num_form">
+        <div class="report_form_group">
+            <%= f.label :japanese, '国語' %>
+            <%= f.radio_button :japanese, "1" %>1
+            <%= f.radio_button :japanese, "2" %>2
+            <%= f.radio_button :japanese, "3" %>3
+            <%= f.radio_button :japanese, "4" %>4
+            <%= f.radio_button :japanese, "5" %>5
+        </div>
+        <div class="report_form_group">
+            <%= f.label :social, '社会' %>
+            <%= f.radio_button :social, "1" %>1
+            <%= f.radio_button :social, "2" %>2
+            <%= f.radio_button :social, "3" %>3
+            <%= f.radio_button :social, "4" %>4
+            <%= f.radio_button :social, "5" %>5
+        </div>
+        <div class="report_form_group">
+            <%= f.label :math, '数学' %>
+            <%= f.radio_button :math, "1" %>1
+            <%= f.radio_button :math, "2" %>2
+            <%= f.radio_button :math, "3" %>3
+            <%= f.radio_button :math, "4" %>4
+            <%= f.radio_button :math, "5" %>5
+        </div>
+        <div class="report_form_group">
+            <%= f.label :science, '理科' %>
+            <%= f.radio_button :science, "1" %>1
+            <%= f.radio_button :science, "2" %>2
+            <%= f.radio_button :science, "3" %>3
+            <%= f.radio_button :science, "4" %>4
+            <%= f.radio_button :science, "5" %>5
+        </div>
+        <div class="report_form_group">
+            <%= f.label :music, '音楽' %>
+            <%= f.radio_button :music, "1" %>1
+            <%= f.radio_button :music, "2" %>2
+            <%= f.radio_button :music, "3" %>3
+            <%= f.radio_button :music, "4" %>4
+            <%= f.radio_button :music, "5" %>5
+        </div>
+        <div class="report_form_group">
+            <%= f.label :art, '美術' %>
+            <%= f.radio_button :art, "1" %>1
+            <%= f.radio_button :art, "2" %>2
+            <%= f.radio_button :art, "3" %>3
+            <%= f.radio_button :art, "4" %>4
+            <%= f.radio_button :art, "5" %>5
+        </div>
+        <div class="report_form_group">
+            <%= f.label :pe, '体育' %>
+            <%= f.radio_button :pe, "1" %>1
+            <%= f.radio_button :pe, "2" %>2
+            <%= f.radio_button :pe, "3" %>3
+            <%= f.radio_button :pe, "4" %>4
+            <%= f.radio_button :pe, "5" %>5
+        </div>
+        <div class="report_form_group">
+            <%= f.label :techhome, '技家' %>
+            <%= f.radio_button :techhome, "1" %>1
+            <%= f.radio_button :techhome, "2" %>2
+            <%= f.radio_button :techhome, "3" %>3
+            <%= f.radio_button :techhome, "4" %>4
+            <%= f.radio_button :techhome, "5" %>5
+        </div>
+        <div class="report_form_group">
+            <%= f.label :english, '英語' %>
+            <%= f.radio_button :english, "1" %>1
+            <%= f.radio_button :english, "2" %>2
+            <%= f.radio_button :english, "3" %>3
+            <%= f.radio_button :english, "4" %>4
+            <%= f.radio_button :english, "5" %>5
+        </div>
+        <div class="report_form_group report_form_group_total">
+            <%= f.label :total, '合計'%>
+            <%= f.number_field :total , class: 'form-control', min: 9, max: 45 %>
+        </div>
+        <div class="report_form_group">
+            <%= f.submit '登録', class: 'btn_signup result_new_btn' %>
+        </div>
+    <% end %>
+</body>
