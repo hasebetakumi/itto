@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :schools, only: [:index, :create]
     resources :students, only: [:index, :create]
     resources :results, only: [:index, :new, :create, :edit, :update]
+    resources :testresults, only: [:index, :new, :create, :edit, :update]
 end
