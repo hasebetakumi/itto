@@ -6,7 +6,7 @@ class TestresultsController < ApplicationController
             student = Student.find(params[:student_keyword])
             @student = student.name
             test = Test.find(params[:test_keyword])
-            @semester = test.test
+            @test = test.test
         else
             @aaa = 1
         end
@@ -16,11 +16,13 @@ class TestresultsController < ApplicationController
     end
     
     def new
-        
+        @testresult = Testresult.new
+        @searchparameters = [params[:student_keyword], params[:grade_keyword], params[:test_keyword]]
     end
 
     def create
-        
+        Testresult.create(create_params)
+        redirect_to testresults_path
     end
     
     def edit
@@ -33,7 +35,7 @@ class TestresultsController < ApplicationController
     
     private
     def create_params
-        
+        params.require(:testresult).permit(:student_id, :grade, :test_id, :english, :math, :japanese, :science, :social, :art, :pe, :techhome, :music, :fivetotal, :classrank, :graderank).merge(user_id: current_user.id)
     end
     
     def update_params
