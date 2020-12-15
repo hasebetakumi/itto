@@ -51,7 +51,11 @@
     padding: 3px;
     border: solid 1px;
     border-radius: 3px;
+    transition: all 0.3s ease 0s;
 }
+.btn_login_logout:hover{
+    background-color: #66CCFF;
+    color: white;}
 /*application*/
 
 
