@@ -93,10 +93,15 @@
     padding:15px;
 }
 .btn_signup{
+    background-color: white;
     font-size:18px;
     padding-left:20px;
     padding-right:20px;
     border-radius: 7px;
+}
+.btn_signup:hover{
+    background: #333;
+    color: #fff;
 }
 /*新規登録画面*/
 
