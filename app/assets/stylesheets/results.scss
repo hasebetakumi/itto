@@ -47,3 +47,33 @@
     color: blue;
     text-decoration: none;
 }
+// results/_result
+
+
+// results/new
+.result_new_body{
+    font-family: 'my-font';
+    background-color: #EEEEEE;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+}
+.result_form{
+    margin: 40px
+}
+.result_num_form{
+    font-size: 18px;
+    margin: 40px auto;
+    width: 25%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+    padding: 20px;
+}
+.report_form_group_total{
+    margin-top: 20px;
+}
+.result_new_btn{
+    margin-top: 10px;
+}
+// results/new
