@@ -1,8 +1,9 @@
 <body class="report_new_body">
+ 
     <div class="report_form">
         <%= form_for @report do |f| %>
             <div class="report_form_group">
-                <h3 class="report_form_title">スクレポ登録</h3>
+                <p class="search_title">スクレポ登録</p>
             </div>
             <div class="report_form_group">
                 <%= f.label :classifying_id, '種別'%>
@@ -18,11 +19,14 @@
             </div>
             <div class="report_form_group">
                 <%= f.label :report, '本文'%>
-                <%= f.text_area :report, size: "75x13", class: 'form-control' %>
+                <%= f.text_area :report, size: "75x13", class: 'form-control', required: true %>
             </div>
             <div class="report_form_group">
                 <%= f.label :understanding, '理解度'%>
-                <%= f.number_field :understanding , class: 'form-control', min: 1, max: 4, required: true %>
+                <%= f.radio_button :understanding, "1" , required: true %>1
+                <%= f.radio_button :understanding, "2" %>2
+                <%= f.radio_button :understanding, "3" %>3
+                <%= f.radio_button :understanding, "4" %>4
             </div>
             <div class="report_form_group">
                 <%= f.submit '送信', class: 'btn_signup' %>
