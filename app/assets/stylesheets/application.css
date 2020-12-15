@@ -98,6 +98,7 @@
     padding-left:20px;
     padding-right:20px;
     border-radius: 7px;
+    transition: all 0.3s ease 0s;
 }
 .btn_signup:hover{
     background: #333;
