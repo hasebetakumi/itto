@@ -43,7 +43,7 @@
     align-items: center;
     margin-right:15px;
 }
-.btn_login_logout{
+.main_menu_btn{
     color: #66CCFF;
     background-color: white;
     text-decoration: none;
@@ -51,6 +51,26 @@
     padding: 3px;
     border: solid 1px;
     border-radius: 3px;
+    transition: all 0.3s ease 0s;
+    margin-right: 15px;
+}
+.main_menu_btn:hover{
+    background-color: #66CCFF;
+    color: white;
+}
+.btn_login_logout{
+    color: red;
+    background-color: white;
+    text-decoration: none;
+    font-size:18px;
+    padding: 3px;
+    border: solid 1px;
+    border-radius: 3px;
+    transition: all 0.3s ease 0s;
+}
+.btn_login_logout:hover{
+    background-color: red;
+    color: white;
 }
 /*application*/
 
@@ -93,10 +113,16 @@
     padding:15px;
 }
 .btn_signup{
+    background-color: white;
     font-size:18px;
     padding-left:20px;
     padding-right:20px;
     border-radius: 7px;
+    transition: all 0.3s ease 0s;
+}
+.btn_signup:hover{
+    background: #333;
+    color: #fff;
 }
 /*新規登録画面*/
 

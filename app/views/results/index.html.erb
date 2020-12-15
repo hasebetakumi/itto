@@ -1,8 +1,6 @@
 <body class="result_body">
-    <div class="report_menu_item_group">
-        <%= link_to "メインメニュー", root_path, class: "report_menu_item" %>
-    </div>
     <div class="search_group">
+        <p class="search_title">成績検索</p>
         <form method="get" action="/results">
             <select name="student_keyword" class="result_search_box" required>
                 <option value="">生徒氏名を選択してください</option>

@@ -9,6 +9,14 @@
     height: 100%;
     margin: 0;
 }
+.result_form{
+    margin-top: 0px;
+}
+.result_new_title{
+    margin-top: 0px;
+    padding: 0px;
+    padding-bottom: 15px;
+}
 .report_menu_item_group{
     margin-top: 30px;
     margin-left: 30px;
@@ -44,8 +52,16 @@
 
 // results/_result
 .edit_result_path{
+    inline: block;
     color: blue;
     text-decoration: none;
+    transition: all 0.3s ease 0s;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+.edit_result_path:hover{
+    background: #333;
+    color: #fff;
 }
 // results/_result
 
