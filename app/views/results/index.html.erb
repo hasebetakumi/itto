@@ -50,11 +50,11 @@
     <% elsif @aaa.present? %>
         まずは検索をしてください。
     <% else %>
+        <%= @student %>
         <form method="get" action="/results/new">
             <input type="hidden" name="student_keyword" value="<%= @searchparameters[0] %>">
             <input type="hidden" name="grade_keyword" value="<%= @searchparameters[1] %>">
             <input type="hidden" name="semester_keyword" value="<%= @searchparameters[2] %>">
             <input type="submit" value="新規登録">
         </form>
-        
     <% end %>
