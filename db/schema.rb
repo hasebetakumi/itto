@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_043342) do
+ActiveRecord::Schema.define(version: 2020_12_15_044201) do
 
   create_table "classifyings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "classifying"
@@ -112,6 +112,12 @@ ActiveRecord::Schema.define(version: 2020_12_15_043342) do
     t.integer "fivetotal"
     t.integer "classrank"
     t.integer "graderank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "test"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
