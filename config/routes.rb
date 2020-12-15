@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :reports, only: [:index, :new, :create] 
     resources :schools, only: [:index, :create]
     resources :students, only: [:index, :create]
+    resources :results, only: [:index, :new, :create, :edit, :update]
 end

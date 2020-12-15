@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_010822) do
+ActiveRecord::Schema.define(version: 2020_12_12_113102) do
 
   create_table "classifyings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "classifying"
@@ -35,9 +35,34 @@ ActiveRecord::Schema.define(version: 2020_12_06_010822) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "user_id"
+    t.integer "grade"
+    t.integer "semester_id"
+    t.integer "english"
+    t.integer "math"
+    t.integer "japanese"
+    t.integer "science"
+    t.integer "social"
+    t.integer "art"
+    t.integer "pe"
+    t.integer "techhome"
+    t.integer "music"
+    t.integer "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "schools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "classifying"
     t.string "school"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "semesters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "semester"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
