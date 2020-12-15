@@ -3,6 +3,8 @@ class ResultsController < ApplicationController
         if params[:student_keyword].present? and params[:grade_keyword].present? and params[:semester_keyword].present?
             @results = Result.where(student_id: params[:student_keyword], grade: params[:grade_keyword], semester_id: params[:semester_keyword]).includes(:student, :user, :semester)
             @searchparameters = [params[:student_keyword], params[:grade_keyword], params[:semester_keyword]]
+            student = Student.find(params[:student_keyword])
+            @student = student.name
         else
             @aaa = 1
         end
