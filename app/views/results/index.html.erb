@@ -1,60 +1,67 @@
-    <%= link_to "メインメニュー", root_path, class: "report_menu_item" %>
-    <div >
+<body class="result_body">
+    <div class="report_menu_item_group">
+        <%= link_to "メインメニュー", root_path, class: "report_menu_item" %>
+    </div>
+    <div class="search_group">
         <form method="get" action="/results">
-            <select name="student_keyword" class="search_box" required>
+            <select name="student_keyword" class="result_search_box" required>
                 <option value="">生徒氏名を選択してください</option>
                 <% @students.each do |student| %>
                     <option value="<%= student.id %>"><%= student.name %></option>
                 <% end %>
             </select>
-            <p>学年
+            <p class="search_radio">学年
                 <input type="radio" name="grade_keyword" value="1" required>1
                 <input type="radio" name="grade_keyword" value="2">2
                 <input type="radio" name="grade_keyword" value="3">3
             </p>
-            <p>学期
+            <p class="search_radio">学期
                 <% @semesters.each do |semester| %>
                     <input type="radio" name="semester_keyword" value="<%= semester.id %>" required><%= semester.semester %>
                 <% end %>
             <p>
                 <input type="submit" value="検索" class="search_btn">
-                <%= link_to "一覧表示", results_path, class: "search_btn" %>
             </p>
         </form>
     </div>
-    <% if @results.present? %>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>生徒氏名</th>
-                    <th>学年</th>
-                    <th>学期</th>
-                    <th>英語</th>
-                    <th>数学</th>
-                    <th>国語</th>
-                    <th>理科</th>
-                    <th>社会</th>
-                    <th>美術</th>
-                    <th>体育</th>
-                    <th>技家</th>
-                    <th>音楽</th>
-                    <th>合計</th>
-                    <th>登録者</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%= render @results %>
-            </tbody>
-        </table>
-    <% elsif @aaa.present? %>
-        まずは検索をしてください。
-    <% else %>
-        <%= @student %>
-        <form method="get" action="/results/new">
-            <input type="hidden" name="student_keyword" value="<%= @searchparameters[0] %>">
-            <input type="hidden" name="grade_keyword" value="<%= @searchparameters[1] %>">
-            <input type="hidden" name="semester_keyword" value="<%= @searchparameters[2] %>">
-            <input type="submit" value="新規登録">
-        </form>
-    <% end %>
+    <div class="all_result">
+        <% if @results.present? %>
+            <table border="1" class="result_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>生徒氏名</th>
+                        <th>学年</th>
+                        <th>学期</th>
+                        <th>英語</th>
+                        <th>数学</th>
+                        <th>国語</th>
+                        <th>理科</th>
+                        <th>社会</th>
+                        <th>美術</th>
+                        <th>体育</th>
+                        <th>技家</th>
+                        <th>音楽</th>
+                        <th>合計</th>
+                        <th>登録者</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%= render @results %>
+                </tbody>
+            </table>
+        <% elsif @aaa.present? %>
+            <a class="search_alert">まずは検索をしてください。</a>
+        <% else %>
+            <p class="search_nothing_alert">
+                <%= @student %>さん　<%= @searchparameters[1] %>年　<%= @semester %>　の検索結果がありませんでした。
+            </p>
+            <form method="get" action="/results/new">
+                <input type="hidden" name="student_keyword" value="<%= @searchparameters[0] %>">
+                <input type="hidden" name="grade_keyword" value="<%= @searchparameters[1] %>">
+                <input type="hidden" name="semester_keyword" value="<%= @searchparameters[2] %>">
+                <input type="submit" value="新規登録" class="search_btn">
+            </form>
+        <% end %>
+    </div>
+</body>

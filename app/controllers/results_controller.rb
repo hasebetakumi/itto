@@ -5,6 +5,8 @@ class ResultsController < ApplicationController
             @searchparameters = [params[:student_keyword], params[:grade_keyword], params[:semester_keyword]]
             student = Student.find(params[:student_keyword])
             @student = student.name
+            semester = Semester.find(params[:semester_keyword])
+            @semester = semester.semester
         else
             @aaa = 1
         end
