@@ -17,6 +17,9 @@ class ReportsController < ApplicationController
     
     def new
         @report = Report.new
+        if params[:student].present? and params[:classifying].present? and params[:subject]
+            @parameters = [params[:student], params[:classifying], params[:subject]]
+        end
     end
     
     def create

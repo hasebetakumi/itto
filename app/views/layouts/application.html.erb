@@ -17,8 +17,10 @@
       <% end %>
     </div>
     <div class='login_logout'>
+     
       <%= link_to "メインメニュー", root_path, class: "main_menu_btn"%>
       <% if user_signed_in? %>
+         <%= link_to "マイページ", user_path(current_user) %>
         <%= link_to "ログアウト", destroy_user_session_path , method: :delete, class: "btn_login_logout" %>
       <% else %>
         <%= link_to "ログイン", new_user_session_path, class: "btn_login_logout" %>
