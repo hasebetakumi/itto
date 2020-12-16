@@ -1,3 +1,102 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mypage_body{
+    font-family: 'my-font';
+    background-color: #EEEEEE;
+    height: 100%;
+    margin: 0;
+}
+.mypage_title{
+    margin-left: 15px;
+}
+.class_data{
+    display: flex;
+    justify-content:space-between;
+    width: 80%;
+    margin: 20px auto;
+}
+.late_report{
+    background: white;
+    padding: 10px 20px 20px 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 150px;
+    border-radius: 15px;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+}
+.hidden_data_btn{
+    margin-bottom: 8px;
+    font-size: 13px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.sub_title{
+    margin: 0px;
+    margin-bottom: 5px;
+}
+.late_report_item{
+    color: red;
+}
+
+
+.user_data{
+    background: white;
+    padding: 10px 20px 20px 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 150px;
+    border-radius: 15px;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+}
+.user_data_group{
+    display: flex;
+}
+.user_data_item{
+    margin: 0px 20px 6px 0px;
+}
+
+.student_data_table{
+    padding-top: 10px;
+}
+.student_data_result{
+    background-color: white;
+    width: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 150px;
+    margin: 30px auto;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+.mypage_result_table{
+    width: 95%;
+    margin: 10px auto;
+}
+.table_title{
+    width: 95%;
+    margin: 10px auto;
+}
+
+
+
+.mypage_report_group{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 500px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.report_title{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.mypage_all_report{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 500px;
+    width: 80%;
+    margin: 0px auto;
+}
