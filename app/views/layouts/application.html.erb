@@ -12,15 +12,14 @@
   <header  class="header">
     <div class="user_name">
       <% if user_signed_in? %>
+        <%= link_to "メインメニュー", root_path, class: "main_menu_btn"%>
         <a class="user_name_item"><%= current_user.name %>　でログイン中</a>
       <% else %>
       <% end %>
     </div>
     <div class='login_logout'>
-     
-      <%= link_to "メインメニュー", root_path, class: "main_menu_btn"%>
       <% if user_signed_in? %>
-         <%= link_to "マイページ", user_path(current_user) %>
+        <%= link_to "マイページ", user_path(current_user), class: "main_menu_btn" %>
         <%= link_to "ログアウト", destroy_user_session_path , method: :delete, class: "btn_login_logout" %>
       <% else %>
         <%= link_to "ログイン", new_user_session_path, class: "btn_login_logout" %>
