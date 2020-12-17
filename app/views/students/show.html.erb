@@ -1,5 +1,14 @@
 <body class="mypage_body">
-    <p class="mypage_title"><%= @user.name %>　先生のページです。</p>
+    <p class="mypage_title"><%= @student.name %>　さんのページです。</p>
+    <table border="1" class = "elementary_student student_table">
+        <thead>
+            <%= render partial: "students/table_index" %>
+        </thead>
+        <tbody class="elementary_student_body">
+            <%= render @student %>
+        </tbody>
+    </table>
+    
     <div class="class_data">
         <div class="late_report">
             <p class="sub_title">直近の授業</p>
@@ -10,23 +19,23 @@
                     <input type="hidden" name="subject" value="<%= report.subject_id %>">
                     <input type="submit" value="スクレポ登録" class="hidden_data_btn">
                 </form>
-                <a class="late_report_item"><%= report.student.name %></a>
                 <%= report.classifying.classifying %>
+                <a class="late_report_item"><%= report.user.name %></a>
                 <%= report.subject.subject %>
                 <%= report.created_at.to_s(:datetime_jp) %>
                 <a class="star5_rating" data-rate="<%= report.understanding %>"></a><br>
             <% end %>
         </div>
         <div class="user_data">
-            <p class="sub_title">担当生徒（授業回数）</p>
+            <p class="sub_title">担当講師（授業回数）</p>
             <div class="user_data_group">
                 <div>
-                    <% @students.each do |student| %>
-                        <a class="user_data_item" ><%= student.name %></a><br>
+                    <% @users.each do |user| %>
+                        <a class="user_data_item" ><%= user.name %></a><br>
                     <% end %>
                 </div>
                 <div>
-                    <% @student_counts.each do |count| %>
+                    <% @user_counts.each do |count| %>
                         <%= count %>回<br>
                     <% end %>
                 </div>
@@ -34,10 +43,19 @@
         </div>
     </div>
     
+    <div class="graph_area">
+        <div class="result_graph">
+            <%= line_chart @result_data, width: "600px", height: "250px" %>
+        </div>
+        <div class="testresult_graph">
+            <%= line_chart @testresult_data, width: "600px", height: "250px" %>
+        </div>
+    </div>
+    
     <div class="student_data_table">
         <div class="student_data_result">
             <table border="1" class="mypage_result_table">
-            <p class="table_title">登録した成績</p>
+            <p class="table_title">成績</p>
                 <thead>
                     <tr>
                         <th></th>
@@ -64,7 +82,7 @@
         </div>
         <div class="student_data_result">
             <table border="1" class="mypage_result_table">
-                <p class="table_title">登録した試験結果</p>
+                <p class="table_title">試験結果</p>
                 <thead>
                     <tr>
                         <th></th>

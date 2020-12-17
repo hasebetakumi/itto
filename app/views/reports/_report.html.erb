@@ -1,7 +1,7 @@
 <li class="report">
     <div class="report_info">
-        <a class="report_info_item report_name"><%= report.student.family_name %></a>
-        <a class="report_info_item report_name"><%= report.student.given_name %></a>
+        <a href="/students/<%= report.student_id %>" class="report_info_item report_name"><%= report.student.family_name %></a>
+        <a href="/students/<%= report.student_id %>" class="report_info_item report_name"><%= report.student.given_name %></a>
         
         <a class="report_info_item"><%= report.classifying.classifying %></a>
         <a class="report_info_item report_user"><%= report.user.name %></a>
