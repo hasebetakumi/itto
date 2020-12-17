@@ -43,11 +43,14 @@
         </div>
     </div>
     
-    <canvas id="graph-area" height="450" width="600">
-        <script>
-        </script>
-    </canvas>
-
+    <div class="graph_area">
+        <div class="result_graph">
+            <%= line_chart @result_data, width: "600px", height: "250px" %>
+        </div>
+        <div class="testresult_graph">
+            <%= line_chart @testresult_data, width: "600px", height: "250px" %>
+        </div>
+    </div>
     
     <div class="student_data_table">
         <div class="student_data_result">
