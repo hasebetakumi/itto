@@ -1,0 +1,111 @@
+<body class="mypage_body">
+    <p class="mypage_title"><%= @student.name %>　さんのページです。</p>
+    <table border="1" class = "elementary_student student_table">
+        <thead>
+            <%= render partial: "students/table_index" %>
+        </thead>
+        <tbody class="elementary_student_body">
+            <%= render @student %>
+        </tbody>
+    </table>
+    
+    <div class="class_data">
+        <div class="late_report">
+            <p class="sub_title">直近の授業</p>
+            <% @reports.each do |report|%>
+                <form method="get" action="/reports/new" style="display: inline">
+                    <input type="hidden" name="student" value="<%= report.student_id %>">
+                    <input type="hidden" name="classifying" value="<%= report.classifying_id %>">
+                    <input type="hidden" name="subject" value="<%= report.subject_id %>">
+                    <input type="submit" value="スクレポ登録" class="hidden_data_btn">
+                </form>
+                <%= report.classifying.classifying %>
+                <a class="late_report_item"><%= report.user.name %></a>
+                <%= report.subject.subject %>
+                <%= report.created_at.to_s(:datetime_jp) %>
+                <a class="star5_rating" data-rate="<%= report.understanding %>"></a><br>
+            <% end %>
+        </div>
+        <div class="user_data">
+            <p class="sub_title">担当講師（授業回数）</p>
+            <div class="user_data_group">
+                <div>
+                    <% @users.each do |user| %>
+                        <a class="user_data_item" ><%= user.name %></a><br>
+                    <% end %>
+                </div>
+                <div>
+                    <% @user_counts.each do |count| %>
+                        <%= count %>回<br>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="student_data_table">
+        <div class="student_data_result">
+            <table border="1" class="mypage_result_table">
+            <p class="table_title">成績</p>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>生徒氏名</th>
+                        <th>学年</th>
+                        <th>学期</th>
+                        <th>英語</th>
+                        <th>数学</th>
+                        <th>国語</th>
+                        <th>理科</th>
+                        <th>社会</th>
+                        <th>美術</th>
+                        <th>体育</th>
+                        <th>技家</th>
+                        <th>音楽</th>
+                        <th>合計</th>
+                        <th>登録者</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%= render partial: "results/result", collection: @results %>
+                </tbody>
+            </table>
+        </div>
+        <div class="student_data_result">
+            <table border="1" class="mypage_result_table">
+                <p class="table_title">試験結果</p>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>生徒氏名</th>
+                        <th>学年</th>
+                        <th>学期</th>
+                        <th>英語</th>
+                        <th>数学</th>
+                        <th>国語</th>
+                        <th>理科</th>
+                        <th>社会</th>
+                        <th>美術</th>
+                        <th>体育</th>
+                        <th>技家</th>
+                        <th>音楽</th>
+                        <th>5教科合計</th>
+                        <th>クラス順位</th>
+                        <th>学年順位</th>
+                        <th>登録者</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%= render partial: "testresults/testresult", collection: @testresults %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="report_group mypage_report_group">
+    <p class="report_title">スクレポ一覧</p>
+        <ul class="all_report mypage_all_report">
+            <%= render partial: "reports/report", collection: @reports %>
+        </ul>
+    </div>
+</body>
