@@ -58,7 +58,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%= render @results %>
+                    <%= render partial: "results/result", collection: @results %>
                 </tbody>
             </table>
         </div>
@@ -87,7 +87,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%= render @testresults %>
+                    <%= render partial: "testresults/testresult", collection: @testresults %>
                 </tbody>
             </table>
         </div>
@@ -96,7 +96,7 @@
     <div class="report_group mypage_report_group">
     <p class="report_title">スクレポ一覧</p>
         <ul class="all_report mypage_all_report">
-            <%= render @reports %>
+            <%= render partial: "reports/report", collection: @reports %>
         </ul>
     </div>
 </body>
