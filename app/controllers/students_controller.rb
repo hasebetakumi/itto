@@ -26,8 +26,41 @@ class StudentsController < ApplicationController
                 @user_counts << user_id[1]
             end
         
-        @results = Result.where(student_id: params[:id]).order(created_at: :DESC)
-        @testresults = Testresult.where(student_id: params[:id]).order(created_at: :DESC)
+        @results = Result.where(student_id: params[:id]).order(semester_id: :ASC, grade: :ASC)
+        @testresults = Testresult.where(student_id: params[:id]).order(test_id: :ASC, grade: :ASC)
+        
+        subjects = [{"ja" => "英語", "en" => :english}, {"ja" => "国語", "en" => :japanese}, {"ja" => "数学", "en" => :math}, {"ja" => "理科", "en" => :science}, {"ja" => "社会", "en" => :social}]
+        
+        # 成績グラフ用データ取得
+        @result_data = []
+        subjects.each do |subject|
+            result_graph_data = {}
+                result_graph_data[:name] = "#{subject["ja"]}"
+                result_graph_data[:data] = {"1学期"=> 1 }
+                    @results.each do |data|
+                        label_semester = Semester.find(data[:semester_id])
+                        semester = label_semester[:semester]
+                        result_graph_data[:data].store("#{data[:grade]}年#{semester}", data[subject["en"]])
+                    end
+            result_graph_data[:data].delete("1学期")
+        @result_data << result_graph_data
+        end
+        
+        # 試験結果グラフ用データ取得
+        @testresult_data = []
+        subjects.each do |subject|
+            result_graph_data = {}
+                result_graph_data[:name] = "#{subject["ja"]}"
+                result_graph_data[:data] = {"1学期"=> 1 }
+                    @testresults.each do |data|
+                        label_test = Test.find(data[:test_id])
+                        test = label_test[:test]
+                        result_graph_data[:data].store("#{data[:grade]}年#{test}", data[subject["en"]])
+                    end
+            result_graph_data[:data].delete("1学期")
+        @testresult_data << result_graph_data
+        end
+            
     end
     
     private
