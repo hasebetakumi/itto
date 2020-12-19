@@ -45,10 +45,10 @@
     
     <div class="graph_area">
         <div class="result_graph">
-            <%= line_chart @result_data, width: "600px", height: "250px" %>
+            <%= line_chart @result_data, width: "500px", height: "250px", min: 1, max: 5, curve: false %>
         </div>
         <div class="testresult_graph">
-            <%= line_chart @testresult_data, width: "600px", height: "250px" %>
+            <%= line_chart @testresult_data, width: "500px", height: "250px", min: 1, max: 100, curve: false %>
         </div>
     </div>
     
