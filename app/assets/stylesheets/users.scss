@@ -37,6 +37,10 @@
 }
 .late_report_item{
     color: red;
+    text-decoration: none;
+}
+.late_report_item:hover{
+    opacity: 0.5;
 }
 
 

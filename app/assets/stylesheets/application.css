@@ -36,6 +36,10 @@
     align-items: center;
     margin-left:30px;
 }
+.user_name_item{
+    text-decoration: none;
+    color: blue
+}
 .login_logout{
     height: 100%;
     display: flex;

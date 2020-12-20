@@ -1,6 +1,6 @@
 <tr>
     <td><%= link_to "編集", edit_result_path(result.id), class: "edit_result_path"%></td>
-    <td><%= result.student.name %></td>
+    <td><a href="/students/<%= result.student.id %>" class="result_student_link"><%= result.student.name %></a></td>
     <td><%= result.grade %></td>
     <td><%= result.semester.semester %></td>
     <td><%= result.english %></td>
