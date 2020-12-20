@@ -8,7 +8,7 @@
                     <input type="hidden" name="student" value="<%= report.student_id %>">
                     <input type="hidden" name="classifying" value="<%= report.classifying_id %>">
                     <input type="hidden" name="subject" value="<%= report.subject_id %>">
-                    <input type="submit" value="スクレポ登録" class="hidden_data_btn">
+                    <input type="submit" value="授業報告登録" class="hidden_data_btn">
                 </form>
                 <a href="/students/<%= report.student.id %>" class="late_report_item"><%= report.student.name %></a>
                 <%= report.classifying.classifying %>
@@ -94,7 +94,7 @@
     </div>
     
     <div class="report_group mypage_report_group">
-    <p class="report_title">スクレポ一覧</p>
+    <p class="report_title">授業報告一覧</p>
         <ul class="all_report mypage_all_report">
             <%= render partial: "reports/report", collection: @reports %>
         </ul>

@@ -3,7 +3,7 @@
     <div class="report_form">
         <%= form_for @report do |f| %>
             <div class="report_form_group">
-                <p class="search_title">スクレポ登録</p>
+                <p class="search_title">授業報告登録</p>
             </div>
             <div class="report_form_group">
                 <%= f.label :classifying_id, '種別'%>
@@ -31,7 +31,7 @@
             </div>
             <div class="report_form_group">
                 <%= f.label :report, '本文'%>
-                <%= f.text_area :report, size: "75x13", class: 'form-control', required: true %>
+                <%= f.text_area :report, size: "75x13", class: 'form-control', required: true, value: "【指導内容】【使用テキスト】p~p【指導報告】【宿題】" %>
             </div>
             <div class="report_form_group">
                 <%= f.label :understanding, '理解度'%>
