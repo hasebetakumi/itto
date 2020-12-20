@@ -13,7 +13,7 @@
     <div class="user_name">
       <% if user_signed_in? %>
         <%= link_to "メインメニュー", root_path, class: "main_menu_btn"%>
-        <a href="/users/<%= current_user.id %>" class="user_name_item"><%= current_user.name %></a><a class="user_name_subitem">　でログイン中</a>
+        <a class="user_name_item"><%= current_user.name %></a><a class="user_name_subitem">　でログイン中</a>
       <% else %>
       <% end %>
     </div>
