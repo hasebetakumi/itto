@@ -48,3 +48,28 @@
     width:75%;
 }
 // students/index 生徒一覧
+
+
+// students/show
+.student_page_table{
+    border-radius: 5px;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+     margin-top: 40px;
+}
+.graph_area{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 50px auto;
+}
+.graph_title{
+    margin: 0px;
+    margin: 10px;
+}
+.result_graph{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+}
+// students/show
