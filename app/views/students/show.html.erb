@@ -1,6 +1,6 @@
 <body class="mypage_body">
     <p class="mypage_title"><%= @student.name %>　さんのページです。</p>
-    <table border="1" class = "elementary_student student_table">
+    <table border="1" class = "elementary_student student_table student_page_table">
         <thead>
             <%= render partial: "students/table_index" %>
         </thead>
@@ -45,10 +45,12 @@
     
     <div class="graph_area">
         <div class="result_graph">
-            <%= line_chart @result_data, width: "600px", height: "250px" %>
+            <p class="graph_title">成績グラフ</p>
+            <%= line_chart @result_data, width: "500px", height: "250px", min: 1, max: 5, curve: false %>
         </div>
-        <div class="testresult_graph">
-            <%= line_chart @testresult_data, width: "600px", height: "250px" %>
+        <div class="result_graph">
+            <p class="graph_title">試験結果グラフ</p>
+            <%= line_chart @testresult_data, width: "500px", height: "250px", min: 1, max: 100, curve: false %>
         </div>
     </div>
     
