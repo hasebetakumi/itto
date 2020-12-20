@@ -38,6 +38,7 @@
 }
 .user_name_item{
     text-decoration: none;
+    color: blue
 }
 .login_logout{
     height: 100%;
