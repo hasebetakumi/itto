@@ -20,7 +20,7 @@
                     <input type="submit" value="スクレポ登録" class="hidden_data_btn">
                 </form>
                 <%= report.classifying.classifying %>
-                <a class="late_report_item"><%= report.user.name %></a>
+                <a class="late_report_item_student"><%= report.user.name %></a>
                 <%= report.subject.subject %>
                 <%= report.created_at.to_s(:datetime_jp) %>
                 <a class="star5_rating" data-rate="<%= report.understanding %>"></a><br>

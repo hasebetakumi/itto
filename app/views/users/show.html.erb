@@ -10,7 +10,7 @@
                     <input type="hidden" name="subject" value="<%= report.subject_id %>">
                     <input type="submit" value="スクレポ登録" class="hidden_data_btn">
                 </form>
-                <a class="late_report_item"><%= report.student.name %></a>
+                <a href="/students/<%= report.student.id %>" class="late_report_item"><%= report.student.name %></a>
                 <%= report.classifying.classifying %>
                 <%= report.subject.subject %>
                 <%= report.created_at.to_s(:datetime_jp) %>
