@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
-        @reports = Report.where(user_id: params[:id]).order(created_at: :DESC)
+        @reports = Report.where(user_id: params[:id]).order(created_at: :DESC).includes(:student, :user, :subject, :classifying)
         
         user_student_ids = Report.where(user_id: params[:id]).group(:student_id).order('count_student_id DESC').count(:student_id)
         @students = []
@@ -12,8 +12,8 @@ class UsersController < ApplicationController
                 @student_counts << student_id[1]
             end
         
-        @results = Result.where(user_id: params[:id]).order(created_at: :DESC)
-        @testresults = Testresult.where(user_id: params[:id]).order(created_at: :DESC)
+        @results = Result.where(user_id: params[:id]).order(created_at: :DESC).includes(:student, :user, :semester)
+        @testresults = Testresult.where(user_id: params[:id]).order(created_at: :DESC).includes(:student, :user, :test)
     end
     
 end
