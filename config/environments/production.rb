@@ -91,4 +91,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'http://3.114.63.135/' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "pro.only.21@gmail.com", #先ほど作成した送信用Gmailアドレス
+    :password => "pbcnqyweiknofeqc", #2段階認証したアカウントで発行したアプリパスワード
+    :authentication => 'login'
+  }
 end
