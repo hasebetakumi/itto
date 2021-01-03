@@ -12,6 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_12_15_044201) do
 
+  create_table "classifyings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "classifying"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "classifying_id"
     t.integer "student_id"
