@@ -1,4 +1,5 @@
 <tr class="student">
+    <td><%= link_to "編集", edit_student_path(junior_high_school_student.id), class: "edit_result_path"%></td>
     <td class="table_item"><%= junior_high_school_student.id %></td>
     <td class="table_item"><%= junior_high_school_student.grade %></td>
     <td class="table_item"><%= junior_high_school_student.school.school %></td>

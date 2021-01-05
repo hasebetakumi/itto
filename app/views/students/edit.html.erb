@@ -1,0 +1,52 @@
+<body class="student_body">  
+    <div class="student_form">
+        <%= form_for @student, remote: true do |f| %>
+            <h3 class="form_group student_form_group student_title">
+                生徒情報編集
+            </h3>
+            <div class="form_group student_form_group">
+                <%= f.label :classifying, '種別'%>
+                <%= f.select :classifying, {'小学': 1, '中学': 2,'高校': 3} , {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+            </div>
+            <div class="form_group student_form_group">
+                <%= f.label :grade, '学年'%>
+                <%= f.select :grade, {'1年': 1, '2年': 2,'3年': 3,'4年': 4,'5年': 5,'6年': 6}, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+            </div>
+            <div class="form_group student_form_group">
+                <%= f.label :school_id, '学校'%>
+                <%= f.collection_select :school_id, School.all, :id, :school, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+            </div>
+            <div class="form_group student_form_group">
+                <%= f.label :year, '年度'%>
+                <%= f.number_field :year , class: 'form-control', min: 2000, max: 2015, required: true %>
+            </div>
+            <div class="name_group">
+                <div class="form_group student_form_group">
+                    <%= f.label :family_name, '　　姓'%>
+                    <%= f.text_field :family_name, class: 'form-control', required: true %>
+                </div>
+                <div class="form_group student_form_group">
+                    <%= f.label :given_name, '　　名'%>
+                    <%= f.text_field :given_name, class: 'form-control', required: true %>
+                </div>
+            </div>
+            <div class="name_group">
+                <div class="form_group student_form_group">
+                    <%= f.label :family_name_kana, '　せい'%>
+                    <%= f.text_field :family_name_kana, class: 'form-control', required: true %>
+                </div>
+                <div class="form_group student_form_group">
+                    <%= f.label :given_name_kana, '　めい'%>
+                    <%= f.text_field :given_name_kana, class: 'form-control', required: true %>
+                </div>
+            </div>
+            <div class="form_group student_form_group">
+                <%= f.label :student_type_id, '生徒タイプ'%>
+                <%= f.collection_select :student_type_id,StudentType.all, :id, :student_type, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+            </div>
+            <div class="form_group student_form_group btn_student">
+                <%= f.submit '変更', class: 'btn_signup' %>
+            </div>
+        <% end %>
+    </div>
+</body>
