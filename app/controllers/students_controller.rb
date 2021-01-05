@@ -13,6 +13,10 @@ class StudentsController < ApplicationController
         @high_school_students = Student.where(classifying: 3).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC)
     end
     
+    def edit
+        @student = Student.find(params[:id])
+    end
+    
     def show
         @student = Student.find(params[:id])
         @reports = Report.where(student_id: params[:id]).order(created_at: :DESC)
