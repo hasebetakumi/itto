@@ -12,12 +12,12 @@
           <!--<% end %>-->
   
           <div class='form-group'>
-            <%= f.label :メールアドレス %>
+            <%= f.label :メールアドレス, class: 'login_item_label' %>
             <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'form-control' %>
           </div>
   
           <div class='form-group'>
-            <%= f.label :パスワード %>
+            <%= f.label :パスワード, class: 'login_item_label' %>
             <%= f.password_field :password, autocomplete: 'off', placeholder: 'パスワード', class: 'form-control' %>
           </div><br />
   

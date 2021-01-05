@@ -116,8 +116,11 @@
     width:75%;
     margin: 0 auto;
 }
+.login_item_label{
+    margin-bottom: 5px;
+}
 .form-control{
-    padding:7px;
+    padding:2px;
     border-radius: 10px;
 }
 .btn-group{
