@@ -2,7 +2,7 @@
     <div class="student_form">
         <%= form_for @student, remote: true do |f| %>
             <h3 class="form_group student_form_group student_title">
-                生徒追加
+                生徒情報編集
             </h3>
             <div class="form_group student_form_group">
                 <%= f.label :classifying, '種別'%>
@@ -45,7 +45,7 @@
                 <%= f.collection_select :student_type_id,StudentType.all, :id, :student_type, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
             </div>
             <div class="form_group student_form_group btn_student">
-                <%= f.submit '追加', class: 'btn_signup' %>
+                <%= f.submit '変更', class: 'btn_signup' %>
             </div>
         <% end %>
     </div>
