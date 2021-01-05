@@ -17,6 +17,12 @@ class StudentsController < ApplicationController
         @student = Student.find(params[:id])
     end
     
+    def update
+        student = Student.find(params[:id])
+        student.update(update_params)
+        redirect_to students_path
+    end
+    
     def show
         @student = Student.find(params[:id])
         @reports = Report.where(student_id: params[:id]).order(created_at: :DESC)
@@ -69,6 +75,10 @@ class StudentsController < ApplicationController
     
     private
     def student_params
+        params.require(:student).permit(:classifying, :grade, :school_id, :year, :family_name, :given_name, :family_name_kana, :given_name_kana, :student_type_id)
+    end
+    
+    def update_params
         params.require(:student).permit(:classifying, :grade, :school_id, :year, :family_name, :given_name, :family_name_kana, :given_name_kana, :student_type_id)
     end
 end
