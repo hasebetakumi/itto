@@ -10,8 +10,11 @@
                 <a class="report_info_item"><%= report.created_at.to_s(:datetime_jp) %></a>
             </div>
             <div class="report_info_first_line_right">
-                <%= link_to "編集", edit_report_path(report.id) %><br>
-                <%= link_to "削除", report_path(report.id), method: :delete %>
+                <% if report.user_id == current_user.id %>
+                    <%= link_to "編集", edit_report_path(report.id), class: "report_info_link" %>
+                    <%= link_to "削除", report_path(report.id), method: :delete, class: "report_info_link" %>
+                <% else %>
+                <% end %>
             </div>
         </div>
         <a >理解度</a>
