@@ -37,6 +37,15 @@ class ReportsController < ApplicationController
         redirect_to reports_path
     end
     
+    def destroy
+        report = Report.find(params[:id])
+        if report.user_id == current_user.id
+            report.destroy
+        else
+        end
+        redirect_to reports_path
+    end
+        
     private
     def create_params
         params.require(:report).permit(:classifying_id, :student_id, :subject_id, :report, :understanding).merge(user_id: current_user.id)
