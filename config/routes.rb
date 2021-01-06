@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     root 'mains#index'
     
     resources :users, only: [:show]
-    resources :reports, only: [:index, :new, :create] 
+    resources :reports, only: [:index, :new, :create, :edit, :update] 
     resources :schools, only: [:index, :create]
     resources :students, only: [:index, :create ,:show, :edit, :update]
     resources :results, only: [:index, :new, :create, :edit, :update]
