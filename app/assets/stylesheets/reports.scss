@@ -89,7 +89,10 @@ ul{
     border-bottom: solid 1px #333;
     padding-bottom: 10px;
     margin-bottom: 10px;
-    
+}
+.report_info_first_line{
+    display: flex;
+    justify-content:space-between
 }
 .report_info_item{
     margin-left: 15px;
@@ -104,6 +107,14 @@ ul{
 }
 .report_user{
     color: blue;
+}
+.report_info_link{
+    color: blue;
+    text-decoration: none;
+    padding-right: 7px;
+}
+.report_info_link:hover{
+    opacity: 0.5;
 }
 .star5_rating{
     position: relative;
