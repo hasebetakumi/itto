@@ -1,12 +1,18 @@
 <li class="report">
     <div class="report_info">
-        <a href="/students/<%= report.student_id %>" class="report_info_item report_name"><%= report.student.family_name %></a>
-        <a href="/students/<%= report.student_id %>" class="report_info_item report_name"><%= report.student.given_name %></a>
-        
-        <a class="report_info_item"><%= report.classifying.classifying %></a>
-        <a class="report_info_item report_user"><%= report.user.name %></a>
-        <a class="report_info_item"><%= report.subject.subject %></a>
-        <a class="report_info_item"><%= report.created_at.to_s(:datetime_jp) %><br></a>
+        <div class="report_info_first_line">
+            <div class="report_info_first_line_left">
+                <a href="/students/<%= report.student_id %>" class="report_info_item report_name"><%= report.student.family_name %></a>
+                <a href="/students/<%= report.student_id %>" class="report_info_item report_name"><%= report.student.given_name %></a>
+                <a class="report_info_item"><%= report.classifying.classifying %></a>
+                <a class="report_info_item report_user"><%= report.user.name %></a>
+                <a class="report_info_item"><%= report.subject.subject %></a>
+                <a class="report_info_item"><%= report.created_at.to_s(:datetime_jp) %></a>
+            </div>
+            <div class="report_info_first_line_right">
+                <%= link_to "編集", edit_report_path(report.id) %><br>
+            </div>
+        </div>
         <a >理解度</a>
         <a class="star5_rating" data-rate="<%= report.understanding %>"></a>
         <a ><%= report.understanding %></a>
