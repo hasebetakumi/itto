@@ -6,22 +6,22 @@
         </div>
         <div>
             <%= f.label :exam_coverage_first, '範囲(開始)' %>
-            <%= f.number_field :exam_coverage_first , class: 'form-control' %>
+            <%= f.number_field :exam_coverage_first , class: 'form-control', required: true %>
         </div>
         <div>
             <%= f.label :exam_coverage_last, '範囲(終了)' %>
-            <%= f.number_field :exam_coverage_last , class: 'form-control' %>
+            <%= f.number_field :exam_coverage_last , class: 'form-control', required: true %>
         </div>
         <div>
             <%= f.label :score, '得点' %>
-            <%= f.number_field :score , class: 'form-control' %>
+            <%= f.number_field :score , class: 'form-control', required: true %>
         </div>
         <div>
             <%= f.label :full_mark, '満点' %>
-            <%= f.number_field :full_mark , class: 'form-control' %>
+            <%= f.number_field :full_mark , class: 'form-control', required: true %>
         </div>
         <div class="report_form_group">
-            <%= f.submit '登録', class: 'btn_signup result_new_btn' %>
+            <%= f.submit '登録', class: 'btn_signup result_new_btn', required: true %>
         </div>
     <% end %>
 </body>
