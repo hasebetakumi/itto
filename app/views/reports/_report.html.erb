@@ -11,6 +11,7 @@
             </div>
             <div class="report_info_first_line_right">
                 <%= link_to "編集", edit_report_path(report.id) %><br>
+                <%= link_to "削除", report_path(report.id), method: :delete %>
             </div>
         </div>
         <a >理解度</a>
