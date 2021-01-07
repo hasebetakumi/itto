@@ -26,4 +26,19 @@ class IttoexamsController < ApplicationController
         @lastyear = year - 1
         @thismonth = day.month
     end
+    
+    def create
+        ittoexam = Ittoexam.where(year: params.require(:ittoexam)[:year], month: params.require(:ittoexam)[:month], student_id: params.require(:ittoexam)[:student_id])
+        if ittoexam.present?
+            
+        else
+            Ittoexam.create(create_params)
+            redirect_to ittoexams_path
+        end
+    end
+    
+    private
+    def create_params
+        params.require(:ittoexam).permit(:year, :month, :student_id, :english_score, :english_full_mark, :japanese_score, :japanese_full_mark, :science_score, :science_full_mark, :social_score, :social_full_mark).merge(user_id: current_user.id)
+    end
 end
