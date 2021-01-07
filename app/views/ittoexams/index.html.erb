@@ -25,39 +25,63 @@
             </p>
         </form>
     </div>
-    
-    <% if @none_students.present? %>
-        <% @none_students.each do |none_student| %>
-            <%= none_student.name %>
-        <% end %>
+    <% if @searchparameters.present? %>
+        <%= @searchparameters[0]%>
+        <%= @searchparameters[1]%>
+    <% else %>
+        検索をしてください。
     <% end %>
-    <% if @en_none_ittoexams.present? %>
-        <% @en_none_ittoexams.each do |en_none_ittoexam| %>
-            <%= en_none_ittoexam.student.name %>
-        <% end %>
-    <% end %>
-    <% if @ja_none_ittoexams.present? %>
-        <% @ja_none_ittoexams.each do |ja_none_ittoexam| %>
-            <%= ja_none_ittoexam.student.name %>
-        <% end %>
-    <% end %>
-    <% if @sc_none_ittoexams.present? %>
-        <% @sc_none_ittoexams.each do |sc_none_ittoexam| %>
-            <%= sc_none_ittoexam.student.name %>
-        <% end %>
-    <% end %>
-    <% if @so_none_ittoexams.present? %>
-        <% @so_none_ittoexams.each do |so_none_ittoexam| %>
-            <%= so_none_ittoexam.student.name %>
-        <% end %>
-    <% end %>
-    
-    <%= @searchparameters[0]%>
-    <%= @searchparameters[1]%>
     
     <div class="student_table_group">
         <table border="1" class = "junior_high_school_student student_table">
             <thead>
+                <tr>
+                    <th colspan="4">何も登録されていない</th>
+                    <th colspan="2">英語が登録されていない</th>
+                    <th colspan="2">国語が登録されていない</th>
+                    <th colspan="2">理科が登録されていない</th>
+                    <th colspan="2">社会が登録されていない</th>
+                </tr>
+                <tr>
+                    <th colspan="4">
+                        <% if @none_students.present? %>
+                            <% @none_students.each do |none_student| %>
+                                <%= none_student.name %><br>
+                            <% end %>
+                        <% end %>
+                    </th>
+                    <th colspan="2">
+                        <% if @en_none_ittoexams.present? %>
+                            <% @en_none_ittoexams.each do |en_none_ittoexam| %>
+                                <%= en_none_ittoexam.student.name %><br>
+                            <% end %>
+                        <% end %>
+                    </th>
+                    <th colspan="2">
+                        <% if @ja_none_ittoexams.present? %>
+                            <% @ja_none_ittoexams.each do |ja_none_ittoexam| %>
+                                <%= ja_none_ittoexam.student.name %><br>
+                            <% end %>
+                        <% end %>
+                    </th>
+                    <th colspan="2">
+                        <% if @sc_none_ittoexams.present? %>
+                            <% @sc_none_ittoexams.each do |sc_none_ittoexam| %>
+                                <%= sc_none_ittoexam.student.name %><br>
+                            <% end %>
+                        <% end %>
+                    </th>
+                    <th colspan="2">
+                        <% if @so_none_ittoexams.present? %>
+                            <% @so_none_ittoexams.each do |so_none_ittoexam| %>
+                                <%= so_none_ittoexam.student.name %><br>
+                            <% end %>
+                        <% end %>
+                    </th>
+                </tr>
+                <tr>
+                    <th>　</th>
+                </tr>
                 <%= render partial: "ittoexams/table_index" %>
             </thead>
             <tbody>
