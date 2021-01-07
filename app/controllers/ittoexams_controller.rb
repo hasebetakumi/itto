@@ -1,40 +1,5 @@
 class IttoexamsController < ApplicationController
     def index
-        if params[:year_keyword].present? and params[:month_keyword].present?
-            ittoexams = Ittoexam.where(year: params[:year_keyword]).includes(:student)
-            @ittoexams = ittoexams.where(month: params[:month_keyword]).includes(:student, :user).order("students.family_name_kana desc", "students.grade asc", "students.classifying asc")
-            @en_none_ittoexams = @ittoexams.where(english_score: nil).includes(:student)
-            @ja_none_ittoexams = @ittoexams.where(japanese_score: nil).includes(:student)
-            @sc_none_ittoexams = @ittoexams.where(science_score: nil).includes(:student)
-            @so_none_ittoexams = @ittoexams.where(social_score: nil).includes(:student)
-            
-            # 登録されていない生徒の割り出し
-            ittoexam_ids = []
-            @ittoexams.each do |ittoexam|
-                ittoexam_ids << ittoexam.student_id
-            end
-            student_ids = []
-            students = Student.all
-            students.each do |student|
-                student_ids << student.id
-            end
-            ittoexam_ids.each do |ittoexam_id|
-                @none_student_ids = student_ids.reject { |id| id == ittoexam_id }
-            end
-            @none_students = []
-            if @none_student_ids.present?
-                @none_student_ids.each do |none_student_id|
-                    @none_students << Student.find(none_student_id)
-                end
-            end
-            
-            @searchparameters = [params[:year_keyword], params[:month_keyword]]
-        else
-            @ittoexams = []
-        end
-        
-        
-            
         
         require 'date'
         day = Date.today
@@ -42,6 +7,40 @@ class IttoexamsController < ApplicationController
         @thisyear = year
         @nextyear = year + 1 
         @thismonth = day.month
+        
+        if params[:year_keyword].present? and params[:month_keyword].present?
+            ittoexams = Ittoexam.where(year: params[:year_keyword]).includes(:student)
+            @ittoexams = ittoexams.where(month: params[:month_keyword]).includes(:student, :user).order("students.family_name_kana desc", "students.grade asc", "students.classifying asc")
+            @searchparameters = [params[:year_keyword], params[:month_keyword]]
+        else       
+            @ittoexams = Ittoexam.where(year: @thisyear, month: @thismonth).includes(:student, :user).order("students.family_name_kana desc", "students.grade asc", "students.classifying asc")
+            @searchparameters = [@thisyear, @thismonth]
+        end
+        
+        # 登録されていない生徒の割り出し
+        @en_none_ittoexams = @ittoexams.where(english_score: nil).includes(:student)
+        @ja_none_ittoexams = @ittoexams.where(japanese_score: nil).includes(:student)
+        @sc_none_ittoexams = @ittoexams.where(science_score: nil).includes(:student)
+        @so_none_ittoexams = @ittoexams.where(social_score: nil).includes(:student)
+        
+        ittoexam_ids = []
+        @ittoexams.each do |ittoexam|
+            ittoexam_ids << ittoexam.student_id
+        end
+        student_ids = []
+        students = Student.all
+        students.each do |student|
+            student_ids << student.id
+        end
+        ittoexam_ids.each do |ittoexam_id|
+            @none_student_ids = student_ids.reject { |id| id == ittoexam_id }
+        end
+        @none_students = []
+        if @none_student_ids.present?
+            @none_student_ids.each do |none_student_id|
+                @none_students << Student.find(none_student_id)
+            end
+        end  
     end
     
     def new
