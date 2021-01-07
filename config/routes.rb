@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     resources :results, only: [:index, :new, :create, :edit, :update]
     resources :testresults, only: [:index, :new, :create, :edit, :update]
     resources :targets, only: [:new, :create, :destroy]
+    resources :ittoexams, only: [:index, :new, :create]
 end
