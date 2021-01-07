@@ -14,4 +14,16 @@ class IttoexamsController < ApplicationController
         @nextyear = year + 1 
         @thismonth = day.month
     end
+    
+    def new
+        @ittoexam = Ittoexam.new
+        
+        require 'date'
+        day = Date.today
+        year = day.year
+        @thisyear = year
+        @nextyear = year + 1 
+        @lastyear = year - 1
+        @thismonth = day.month
+    end
 end
