@@ -1,0 +1,39 @@
+<body class="report_body">
+    <div class="menu_group">
+        <%= link_to "新規登録", new_ittoexam_path, class: "report_menu_item" %>
+    </div>
+    
+    <div class="search_group">
+        <p class="search_title">ITTO模試検索</p>
+        <form method="get" action="/ittoexams">
+            <select name="year_keyword" class="search_box" required>
+                <option value="<%= @thisyear %>"><%= @thisyear %></option>
+                <% (2021..@nextyear).each do |year| %>
+                    <option value="<%= year %>"><%= year %></option>
+                <% end %>
+            </select>
+            <a>年　</a>
+            <select name="month_keyword" class="search_box" required>
+                <option value="<%= @thismonth %>"><%= @thismonth %></option>
+                <% (1..12).each do |month| %>
+                    <option value="<%= month %>"><%= month %></option>
+                <% end %>
+            </select>
+            <a>月</a>
+            <p>
+                <input type="submit" value="検索" class="search_btn">
+            </p>
+        </form>
+    </div>
+    
+    <div class="student_table_group">
+        <table border="1" class = "junior_high_school_student student_table">
+            <thead>
+                <%= render partial: "ittoexams/table_index" %>
+            </thead>
+            <tbody>
+                <%= render @ittoexams %>
+            </tbody>
+        </table>
+    </div>
+</body>
