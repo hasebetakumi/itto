@@ -1,27 +1,36 @@
-<body>
-    <%= form_for @target do |f| %>
-        <div>
-            <%= f.label :student_id, '生徒' %>
-            <%= f.collection_select :student_id , Student.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true} %>
-        </div>
-        <div>
-            <%= f.label :exam_coverage_first, '範囲(開始)' %>
-            <%= f.number_field :exam_coverage_first , class: 'form-control', required: true %>
-        </div>
-        <div>
-            <%= f.label :exam_coverage_last, '範囲(終了)' %>
-            <%= f.number_field :exam_coverage_last , class: 'form-control', required: true %>
-        </div>
-        <div>
-            <%= f.label :score, '得点' %>
-            <%= f.number_field :score , class: 'form-control', required: true %>
-        </div>
-        <div>
-            <%= f.label :full_mark, '満点' %>
-            <%= f.number_field :full_mark , class: 'form-control', required: true %>
-        </div>
-        <div class="report_form_group">
-            <%= f.submit '登録', class: 'btn_signup result_new_btn', required: true %>
-        </div>
-    <% end %>
+<body class="target_body">
+    <div class="student_form">
+        <%= form_for @target do |f| %>
+            <h3 class="form_group student_form_group student_title">
+                単語テスト結果追加
+            </h3>
+            <div class="form_group student_form_group target_form_group">
+                <%= f.label :student_id, '生徒' %>
+                <%= f.collection_select :student_id , Student.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true} %>
+            </div>
+            <div class="target_exam_coverage">
+                <div class="form_group student_form_group">
+                    <%= f.label :exam_coverage_first, '範囲　' %>
+                    <%= f.number_field :exam_coverage_first , class: 'form-control target_item', required: true %>
+                </div>
+                <div class="form_group student_form_group">
+                    <%= f.label :exam_coverage_last, '　〜　' %>
+                    <%= f.number_field :exam_coverage_last , class: 'form-control target_item', required: true %>
+                </div>
+            </div>
+            <div class="target_score">
+                <div class="form_group student_form_group">
+                    <%= f.label :score, '得点　' %>
+                    <%= f.number_field :score , class: 'form-control target_item', required: true %>
+                </div>
+                <div class="form_group student_form_group">
+                    <%= f.label :full_mark, '　／　' %>
+                    <%= f.number_field :full_mark , class: 'form-control target_item', required: true %>
+                </div>
+            </div>
+            <div class="report_form_group">
+                <%= f.submit '登録', class: 'btn_signup result_new_btn', required: true %>
+            </div>
+        <% end %>
+    </div>
 </body>
