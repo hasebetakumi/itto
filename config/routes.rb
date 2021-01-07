@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :students, only: [:index, :create ,:show, :edit, :update]
     resources :results, only: [:index, :new, :create, :edit, :update]
     resources :testresults, only: [:index, :new, :create, :edit, :update]
-    resources :targets, only: [:new, :create]
+    resources :targets, only: [:new, :create, :destroy]
 end
