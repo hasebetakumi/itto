@@ -1,0 +1,52 @@
+<%= form_for @ittoexam do |f| %>
+    <div class="report_form_group">
+         <p class="search_title">ITTO模試編集</p>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :year, '年'%>
+        <%= f.select :year, {"#{@lastyear}": @lastyear,"#{@thisyear}": @thisyear,"#{@nextyear}": @nextyear}, {include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true } %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :month, '月'%>
+        <%= f.select :month, {'1': 1,'2': 2,'3': 3,'4': 4,'5': 5,'6': 6,'7': 7,'8': 8,'9': 9,'10': 10,'11': 11,'12': 12}, {include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true } %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :student_id, '生徒'%>
+        <%= f.collection_select :student_id, Student.all.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true, disabled: true }%>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :english_score, '英語得点'%>
+        <%= f.number_field :english_score, class: "form-control" %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :english_full_mark, '英語満点'%>
+        <%= f.number_field :english_full_mark, class: "form-control" %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :japanese_score, '国語得点'%>
+        <%= f.number_field :japanese_score, class: "form-control" %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :japanese_full_mark, '国語満点'%>
+        <%= f.number_field :japanese_full_mark, class: "form-control" %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :science_score, '理科得点'%>
+        <%= f.number_field :science_score, class: "form-control" %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :science_full_mark, '理科満点'%>
+        <%= f.number_field :science_full_mark, class: "form-control" %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :social_score, '社会得点'%>
+        <%= f.number_field :social_score, class: "form-control" %>
+    </div>
+    <div class="report_form_group">
+        <%= f.label :social_full_mark, '社会満点'%>
+        <%= f.number_field :social_full_mark, class: "form-control" %>
+    </div>
+    <div class="report_form_group">
+        <%= f.submit '送信', class: 'btn_signup' %>
+    </div>
+<% end %>
