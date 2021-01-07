@@ -1,0 +1,2 @@
+class Ittoexam < ApplicationRecord
+end
