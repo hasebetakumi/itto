@@ -1,3 +1,30 @@
 // Place all the styles related to the targets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// target/new
+.target_body{
+    font-family: 'my-font';
+    background-color: #EEEEEE;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+}
+.target_form_group{
+    margin-top: 10px;
+}
+.target_exam_coverage{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.target_score{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.target_item{
+    width: 70px;
+}
+// target/new
