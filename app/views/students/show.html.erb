@@ -62,7 +62,7 @@
         <tbody>
             <% @targets.each do |target| %>
                 <tr>
-                    <td>削除</td>
+                    <td><%= link_to "削除", target_path(target.id), method: :delete %></td>
                     <td><%= target.exam_coverage_first %></td>
                     <td>~</td>
                     <td><%= target.exam_coverage_last %></td>
