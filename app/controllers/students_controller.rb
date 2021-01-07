@@ -25,7 +25,8 @@ class StudentsController < ApplicationController
     
     def show
         @student = Student.find(params[:id])
-        @reports = Report.where(student_id: params[:id]).order(created_at: :DESC)
+        @reports = Report.where(student_id: params[:id]).order(created_at: :DESC).includes(:student, :user, :subject, :classifying)
+        @targets = Target.where(student_id: params[:id]).order(created_at: :DESC).includes(:student, :user)
         
         user_ids = Report.where(student_id: params[:id]).group(:user_id).order('count_user_id DESC').count(:user_id)
         @users = []

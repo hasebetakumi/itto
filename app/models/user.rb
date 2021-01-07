@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :reports
   has_many :results
   has_many :testresults
+  has_many :targets
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
