@@ -3,6 +3,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @reports = Report.where(user_id: params[:id]).order(created_at: :DESC).includes(:student, :user, :subject, :classifying)
         @targets = Target.where(user_id: params[:id]).order(created_at: :DESC).includes(:student, :user)
+        @ittoexams = Ittoexam.where(user_id: params[:id]).order(created_at: :DESC).includes(:student, :user)
         
         user_student_ids = Report.where(user_id: params[:id]).group(:student_id).order('count_student_id DESC').count(:student_id)
         @students = []
