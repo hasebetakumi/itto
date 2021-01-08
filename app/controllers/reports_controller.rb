@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
         end
         
         @users = User.all
-        @students = Student.all
+        @students = Student.all.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC)
     end
     
     def new

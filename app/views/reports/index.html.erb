@@ -11,7 +11,7 @@
             <select name="student_keyword" class="search_box">
                 <option value="">選択してください(生徒)</option>
                 <% @students.each do |student| %>
-                    <option value="<%= student.id %>"><%= student.name %></option>
+                    <option value="<%= student.id %>"><%= student.student_info %></option>
                 <% end %>
             </select>
             <p>
