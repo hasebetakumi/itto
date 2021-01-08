@@ -10,4 +10,16 @@ class Student < ApplicationRecord
     def name
         "#{family_name} #{given_name}"
     end
+    
+    def student_info
+        if classifying == 1
+            classifying_detail = "小"
+        elsif classifying == 2
+            classifying_detail = "中"
+        else
+            classifying_detail = "高"
+        end
+            
+        "#{classifying_detail}　#{grade}年　#{family_name} #{given_name}"
+    end
 end
