@@ -3,6 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // ittoexams/index
+.ittoexam_search_group{
+    background-color: white;
+    width: 30%;
+    text-align: center;
+    margin: 40px auto;
+    box-shadow: 0 0 8px gray;
+    border-radius: 15px;
+}
 .ittoexam_serchparameters{
     margin: 0px;
     text-align: center;
@@ -21,4 +29,21 @@
 }
 .ittoexam_table{
     text-align: center;
+}
+
+
+// ittoexams_new
+.ittoexam_score{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.ittoexam_new_sub{
+    display: flex;
+    justify-content: center;
+}
+.ittoexam_form_control{
+    width: 50px;
+}
+.ittoexam_new_btn{
+    margin-bottom: 10px;
 }
