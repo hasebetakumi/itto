@@ -6,7 +6,7 @@
             </h3>
             <div class="form_group student_form_group">
                 <%= f.label :classifying, '種別'%>
-                <%= f.select :classifying, {'小学': 1, '中学': 2,'高校': 3} , {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+                <%= f.collection_select :classifying, Classifying.all, :id, :classifying, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
             </div>
             <div class="form_group student_form_group">
                 <%= f.label :grade, '学年'%>
@@ -75,6 +75,15 @@
             </thead>
             <tbody class="high_school_student_body">
                 <%= render partial: "students/high_school_student", collection: @high_school_students %>
+            </tbody>
+        </table>
+        <p class="student_classifying">非在籍</p>
+        <table border="1" class = "high_school_student student_table">
+            <thead>
+                <%= render partial: "students/table_index" %>
+            </thead>
+            <tbody class="high_school_student_body">
+                <%= render partial: "students/left_student", collection: @left_students %>
             </tbody>
         </table>
     </div>
