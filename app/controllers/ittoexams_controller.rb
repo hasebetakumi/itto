@@ -19,7 +19,7 @@ class IttoexamsController < ApplicationController
         
         # 登録されていない生徒の割り出し
         @en_none_ittoexams = @ittoexams.where(english_score: nil).includes(:student)
-        @ja_none_ittoexams = @ittoexams.where(japanese_score: nil).includes(:student)
+        @ja_none_ittoexams = @ittoexams.where(japanese_score: nil).includes(:student).order("students.family_name_kana desc", "students.grade desc", "students.classifying asc")
         @sc_none_ittoexams = @ittoexams.where(science_score: nil).includes(:student)
         @so_none_ittoexams = @ittoexams.where(social_score: nil).includes(:student)
         
@@ -33,7 +33,7 @@ class IttoexamsController < ApplicationController
             student_ids << student.id
         end
         ittoexam_ids.each do |ittoexam_id|
-            @none_student_ids = student_ids.reject { |id| id == ittoexam_id }
+            @none_student_ids = student_ids.delete_if{ |id| id == ittoexam_id }
         end
         @none_students = []
         if @none_student_ids.present?
