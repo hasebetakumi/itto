@@ -1,0 +1,12 @@
+<tr class="student">
+    <td><%= link_to "編集", edit_student_path(left_student.id), class: "edit_result_path"%></td>
+    <td class="table_item"><%= left_student.id %></td>
+    <td class="table_item"><%= left_student.grade %></td>
+    <td class="table_item"><%= left_student.school.school %></td>
+    <td class="table_item"><%= left_student.year %></td>
+    <td class="table_item"><a href="/students/<%= left_student.id %>" class="result_student_link"><%= left_student.family_name %></td>
+    <td class="table_item"><a href="/students/<%= left_student.id %>" class="result_student_link"><%= left_student.given_name %></td>
+    <td class="table_item"><%= left_student.family_name_kana %></td>
+    <td class="table_item"><%= left_student.given_name_kana %></td>
+    <td class="table_item"><%= left_student.student_type.student_type %></td>
+</tr>

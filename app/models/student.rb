@@ -16,8 +16,10 @@ class Student < ApplicationRecord
             classifying_detail = "小"
         elsif classifying == 2
             classifying_detail = "中"
-        else
+        elsif classifying == 3   
             classifying_detail = "高"
+        else
+            classifying_detail = "非"
         end
             
         "#{classifying_detail}　#{grade}年　#{family_name} #{given_name}"
