@@ -6,7 +6,7 @@
             </h3>
             <div class="form_group student_form_group target_form_group">
                 <%= f.label :student_id, '生徒' %>
-                <%= f.collection_select :student_id , Student.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true} %>
+                <%= f.collection_select :student_id , Student.where(classifying: 3).order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :student_info, {include_blank: '選択してください'}, { class: 'form-control' , required: true} %>
             </div>
             <div class="target_exam_coverage">
                 <div class="form_group student_form_group">

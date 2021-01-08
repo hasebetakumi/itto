@@ -1,6 +1,5 @@
 class IttoexamsController < ApplicationController
     def index
-        
         require 'date'
         day = Date.today
         year = day.year
@@ -10,16 +9,16 @@ class IttoexamsController < ApplicationController
         
         if params[:year_keyword].present? and params[:month_keyword].present?
             ittoexams = Ittoexam.where(year: params[:year_keyword]).includes(:student)
-            @ittoexams = ittoexams.where(month: params[:month_keyword]).includes(:student, :user).order("students.family_name_kana desc", "students.grade asc", "students.classifying asc")
+            @ittoexams = ittoexams.where(month: params[:month_keyword]).includes(:student, :user).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
             @searchparameters = [params[:year_keyword], params[:month_keyword]]
         else       
-            @ittoexams = Ittoexam.where(year: @thisyear, month: @thismonth).includes(:student, :user).order("students.family_name_kana desc", "students.grade asc", "students.classifying asc")
+            @ittoexams = Ittoexam.where(year: @thisyear, month: @thismonth).includes(:student, :user).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
             @searchparameters = [@thisyear, @thismonth]
         end
         
         # 登録されていない生徒の割り出し
         @en_none_ittoexams = @ittoexams.where(english_score: nil).includes(:student)
-        @ja_none_ittoexams = @ittoexams.where(japanese_score: nil).includes(:student).order("students.family_name_kana desc", "students.grade desc", "students.classifying asc")
+        @ja_none_ittoexams = @ittoexams.where(japanese_score: nil).includes(:student)
         @sc_none_ittoexams = @ittoexams.where(science_score: nil).includes(:student)
         @so_none_ittoexams = @ittoexams.where(social_score: nil).includes(:student)
         
@@ -28,7 +27,7 @@ class IttoexamsController < ApplicationController
             ittoexam_ids << ittoexam.student_id
         end
         student_ids = []
-        students = Student.all
+        students = Student.where(classifying: [1, 2])
         students.each do |student|
             student_ids << student.id
         end
@@ -45,6 +44,7 @@ class IttoexamsController < ApplicationController
     
     def new
         @ittoexam = Ittoexam.new
+        @searchparameters = [params[:year], params[:month], params[:student]]
         
         require 'date'
         day = Date.today

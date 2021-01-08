@@ -6,15 +6,27 @@
             </div>
             <div class="report_form_group">
                 <%= f.label :year, '年'%>
-                <%= f.select :year, {"#{@lastyear}": @lastyear,"#{@thisyear}": @thisyear,"#{@nextyear}": @nextyear}, {selected: @thisyear}, { class: 'form-control' , required: true } %>
-            </div>
+                <% if @searchparameters.present? %>
+                    <%= f.select :year, {"#{@lastyear}": @lastyear,"#{@thisyear}": @thisyear,"#{@nextyear}": @nextyear}, {selected: @searchparameters[0]}, { class: 'form-control' , required: true } %>
+                <% else %>
+                    <%= f.select :year, {"#{@lastyear}": @lastyear,"#{@thisyear}": @thisyear,"#{@nextyear}": @nextyear}, {selected: @thisyear}, { class: 'form-control' , required: true } %>
+                <% end %>
+            </div> 
             <div class="report_form_group">
                 <%= f.label :month, '月'%>
-                <%= f.select :month, {'1': 1,'2': 2,'3': 3,'4': 4,'5': 5,'6': 6,'7': 7,'8': 8,'9': 9,'10': 10,'11': 11,'12': 12}, {selected: @thismonth}, { class: 'form-control' , required: true } %>
+                <% if @searchparameters.present? %>
+                    <%= f.select :month, {'1': 1,'2': 2,'3': 3,'4': 4,'5': 5,'6': 6,'7': 7,'8': 8,'9': 9,'10': 10,'11': 11,'12': 12}, {selected: @searchparameters[1]}, { class: 'form-control' , required: true } %>
+                <% else %>
+                    <%= f.select :month, {'1': 1,'2': 2,'3': 3,'4': 4,'5': 5,'6': 6,'7': 7,'8': 8,'9': 9,'10': 10,'11': 11,'12': 12}, {selected: @thismonth}, { class: 'form-control' , required: true } %>
+                <% end %>
             </div>
             <div class="report_form_group">
                 <%= f.label :student_id, '生徒'%>
-                <%= f.collection_select :student_id, Student.all.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+                <% if @searchparameters.present? %>
+                    <%= f.collection_select :student_id, Student.where(classifying: [1, 2]).order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :student_info, {include_blank: '選択してください', selected: @searchparameters[2]}, { class: 'form-control' , required: true }%>
+                <% else %>
+                    <%= f.collection_select :student_id, Student.where(classifying: [1, 2]).order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :student_info, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+                <% end %>
             </div>
             <div class="ittoexam_score">
                 <div class="ittoexam_new_sub">

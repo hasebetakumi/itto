@@ -47,14 +47,21 @@
                     <th>
                         <% if @none_students.present? %>
                             <% @none_students.each do |none_student| %>
-                                <%= none_student.name %><br>
+                                <%= none_student.student_info %>
+                                <form method="get" action="/ittoexams/new" style="display: inline">
+                                    <input type="hidden" name="year" value="<%= @searchparameters[0]%>">
+                                    <input type="hidden" name="month" value="<%= @searchparameters[1]%>">
+                                    <input type="hidden" name="student" value="<%= none_student.id %>">
+                                    <input type="submit" value=" 新規登録" class="edit_result_path ittoexam_hidden_btn" >
+                                </form>
+                                <br>
                             <% end %>
                         <% end %>
                     </th>
                     <th>
                         <% if @en_none_ittoexams.present? %>
                             <% @en_none_ittoexams.each do |en_none_ittoexam| %>
-                                <%= en_none_ittoexam.student.name %>
+                                <%= en_none_ittoexam.student.student_info %>
                                 <%= link_to "編集", edit_ittoexam_path(en_none_ittoexam.id), class: "edit_result_path" %><br>
                             <% end %>
                         <% end %>
@@ -62,7 +69,7 @@
                     <th>
                         <% if @ja_none_ittoexams.present? %>
                             <% @ja_none_ittoexams.each do |ja_none_ittoexam| %>
-                                <%= ja_none_ittoexam.student.name %>
+                                <%= ja_none_ittoexam.student.student_info %>
                                 <%= link_to "編集", edit_ittoexam_path(ja_none_ittoexam.id), class: "edit_result_path" %><br>
                             <% end %>
                         <% end %>
@@ -70,7 +77,7 @@
                     <th>
                         <% if @sc_none_ittoexams.present? %>
                             <% @sc_none_ittoexams.each do |sc_none_ittoexam| %>
-                                <%= sc_none_ittoexam.student.name %>
+                                <%= sc_none_ittoexam.student.student_info %>
                                 <%= link_to "編集", edit_ittoexam_path(sc_none_ittoexam.id), class: "edit_result_path" %><br>
                             <% end %>
                         <% end %>
@@ -78,7 +85,7 @@
                     <th>
                         <% if @so_none_ittoexams.present? %>
                             <% @so_none_ittoexams.each do |so_none_ittoexam| %>
-                                <%= so_none_ittoexam.student.name %>
+                                <%= so_none_ittoexam.student.student_info %>
                                 <%= link_to "編集", edit_ittoexam_path(so_none_ittoexam.id), class: "edit_result_path" %><br>
                             <% end %>
                         <% end %>

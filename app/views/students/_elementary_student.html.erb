@@ -1,7 +1,7 @@
 <tr class="student">
     <td><%= link_to "編集", edit_student_path(elementary_student.id), class: "edit_result_path"%></td>
     <td class="table_item"><%= elementary_student.id %></td>
-    <td class="table_item"><%= elementary_student.grade %>年</td>
+    <td class="table_item"><%= elementary_student.grade %></td>
     <td class="table_item"><%= elementary_student.school.school %></td>
     <td class="table_item"><%= elementary_student.year %></td>
     <td class="table_item"><a href="/students/<%= elementary_student.id %>" class="result_student_link"><%= elementary_student.family_name %></a></td>
