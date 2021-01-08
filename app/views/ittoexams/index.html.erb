@@ -1,8 +1,4 @@
 <body class="report_body">
-    <div class="menu_group">
-        <%= link_to "新規登録", new_ittoexam_path, class: "report_menu_item" %>
-    </div>
-    
     <div class="search_group">
         <p class="search_title">ITTO模試検索</p>
         <form method="get" action="/ittoexams">
@@ -25,63 +21,76 @@
             </p>
         </form>
     </div>
-    <% if @searchparameters.present? %>
-        <%= @searchparameters[0]%>
-        <%= @searchparameters[1]%>
-    <% else %>
-        検索をしてください。
-    <% end %>
     
-    <div class="student_table_group">
-        <table border="1" class = "junior_high_school_student student_table">
+    <div class="menu_group">
+        <%= link_to "新規登録", new_ittoexam_path, class: "report_menu_item" %>
+        <% if @searchparameters.present? %>
+            <p class="ittoexam_serchparameters"><%= @searchparameters[0]%>年 <%= @searchparameters[1]%>月　で検索</p>
+        <% else %>
+            <p class="ittoexam_serchparameters">検索をしてください。</p>
+        <% end %>
+    </div>
+    
+    <div class="ittoexam_result_table">
+        <table border="1" class = "mypage_result_table">
             <thead>
                 <tr>
-                    <th colspan="4">何も登録されていない</th>
-                    <th colspan="2">英語が登録されていない</th>
-                    <th colspan="2">国語が登録されていない</th>
-                    <th colspan="2">理科が登録されていない</th>
-                    <th colspan="2">社会が登録されていない</th>
+                    <th>何も登録されていない</th>
+                    <th>英語が登録されていない</th>
+                    <th>国語が登録されていない</th>
+                    <th>理科が登録されていない</th>
+                    <th>社会が登録されていない</th>
                 </tr>
+            </thead>
+            <tbody>
                 <tr>
-                    <th colspan="4">
+                    <th>
                         <% if @none_students.present? %>
                             <% @none_students.each do |none_student| %>
                                 <%= none_student.name %><br>
                             <% end %>
                         <% end %>
                     </th>
-                    <th colspan="2">
+                    <th>
                         <% if @en_none_ittoexams.present? %>
                             <% @en_none_ittoexams.each do |en_none_ittoexam| %>
-                                <%= en_none_ittoexam.student.name %><br>
+                                <%= en_none_ittoexam.student.name %>
+                                <%= link_to "編集", edit_ittoexam_path(en_none_ittoexam.id), class: "edit_result_path" %><br>
                             <% end %>
                         <% end %>
                     </th>
-                    <th colspan="2">
+                    <th>
                         <% if @ja_none_ittoexams.present? %>
                             <% @ja_none_ittoexams.each do |ja_none_ittoexam| %>
-                                <%= ja_none_ittoexam.student.name %><br>
+                                <%= ja_none_ittoexam.student.name %>
+                                <%= link_to "編集", edit_ittoexam_path(ja_none_ittoexam.id), class: "edit_result_path" %><br>
                             <% end %>
                         <% end %>
                     </th>
-                    <th colspan="2">
+                    <th>
                         <% if @sc_none_ittoexams.present? %>
                             <% @sc_none_ittoexams.each do |sc_none_ittoexam| %>
-                                <%= sc_none_ittoexam.student.name %><br>
+                                <%= sc_none_ittoexam.student.name %>
+                                <%= link_to "編集", edit_ittoexam_path(sc_none_ittoexam.id), class: "edit_result_path" %><br>
                             <% end %>
                         <% end %>
                     </th>
-                    <th colspan="2">
+                    <th>
                         <% if @so_none_ittoexams.present? %>
                             <% @so_none_ittoexams.each do |so_none_ittoexam| %>
-                                <%= so_none_ittoexam.student.name %><br>
+                                <%= so_none_ittoexam.student.name %>
+                                <%= link_to "編集", edit_ittoexam_path(so_none_ittoexam.id), class: "edit_result_path" %><br>
                             <% end %>
                         <% end %>
                     </th>
                 </tr>
-                <tr>
-                    <th>　</th>
-                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="student_table_group">
+        <table border="1" class = "junior_high_school_student student_table">
+            <thead>
                 <%= render partial: "ittoexams/table_index" %>
             </thead>
             <tbody>
