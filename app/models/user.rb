@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :results
   has_many :testresults
   has_many :targets
+  has_many :ittoexams
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable

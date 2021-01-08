@@ -1,9 +1,4 @@
-
 <body class="report_body">
-    <div class="menu_group">
-        <%= link_to "授業報告登録", new_report_path, class: "report_menu_item" %><a>←一度登録をしている生徒の場合、マイページや生徒ページから登録する方が早いです。</a>
-    </div>
-    
     <div class="search_group">
         <p class="search_title">授業報告検索</p>
         <form method="get" action="/reports">
@@ -26,9 +21,14 @@
         </form>
     </div>
     
+    <div class="menu_group">
+        <%= link_to "授業報告登録", new_report_path, class: "report_menu_item" %><a>←一度登録をしている生徒の場合、マイページや生徒ページから登録する方が早いです。</a>
+    </div>
+    
     <div class="report_group">
         <ul class="all_report">
             <%= render @reports %>
         </ul>
     </div>
     <div class="paginate"><%= paginate(@reports) %></div>
+</body>

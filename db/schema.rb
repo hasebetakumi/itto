@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_135229) do
+ActiveRecord::Schema.define(version: 2021_01_07_044714) do
 
   create_table "classifyings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "classifying"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ittoexams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "year"
+    t.integer "month"
+    t.integer "student_id"
+    t.integer "user_id"
+    t.integer "english_score"
+    t.integer "english_full_mark"
+    t.integer "japanese_score"
+    t.integer "japanese_full_mark"
+    t.integer "science_score"
+    t.integer "science_full_mark"
+    t.integer "social_score"
+    t.integer "social_full_mark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,6 +5,7 @@ class Student < ApplicationRecord
     has_many :results
     has_many :testresults
     has_many :targets
+    has_many :ittoexams
     
     def name
         "#{family_name} #{given_name}"

@@ -76,6 +76,18 @@
         </table>
     </div>
     
+    <div class="student_data_result">
+        <table border="1" class="mypage_result_table">
+        <p class="table_title">ITTO模試結果</p>
+            <thead>
+                <%= render partial: "ittoexams/table_index" %>
+            </thead>
+            <tbody>
+                <%= render partial: "ittoexams/ittoexam", collection: @ittoexams %>
+            </tbody>
+        </table>
+    </div>
+    
     <div class="graph_area">
         <div class="result_graph">
             <p class="graph_title">成績グラフ</p>
