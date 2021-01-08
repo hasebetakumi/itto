@@ -1,8 +1,8 @@
-<tr>
-    <td><%= link_to "編集", edit_ittoexam_path(ittoexam.id) %></td>
+<tr class="ittoexam_table">
+    <td><%= link_to "編集", edit_ittoexam_path(ittoexam.id), class: "edit_result_path" %></td>
     <td><%= ittoexam.student.classifying %></td>
     <td><%= ittoexam.student.grade %></td>
-    <td><%= ittoexam.student.name %></td>
+    <td><a href="/students/<%= ittoexam.student.id %>" class="result_student_link"><%= ittoexam.student.name %></a></td>
     <td><%= ittoexam.english_score %></td>
     <td><%= ittoexam.english_full_mark %></td>
     <td><%= ittoexam.japanese_score %></td>
