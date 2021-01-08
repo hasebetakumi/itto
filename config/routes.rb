@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :schools, only: [:index, :create]
     resources :students, only: [:index, :create ,:show, :edit, :update]
     resources :results, only: [:index, :new, :create, :edit, :update]
+    get 'allresults' => 'results#allresult'
     resources :testresults, only: [:index, :new, :create, :edit, :update]
     resources :targets, only: [:new, :create, :destroy]
     resources :ittoexams, only: [:index, :new, :create, :edit, :update]
