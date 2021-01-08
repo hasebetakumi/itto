@@ -14,7 +14,7 @@
             </div>
             <div class="report_form_group">
                 <%= f.label :student_id, '生徒'%>
-                <%= f.collection_select :student_id, Student.all.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+                <%= f.collection_select :student_id, Student.where(classifying: [1, 2]).order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :student_info, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
             </div>
             <div class="ittoexam_score">
                 <div class="ittoexam_new_sub">
