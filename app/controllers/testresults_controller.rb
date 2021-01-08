@@ -35,6 +35,10 @@ class TestresultsController < ApplicationController
         redirect_to testresults_path
     end
     
+    def alltestresult
+        @testresults = Testresult.all.includes(:student, :user, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+    end
+    
     private
     def create_params
         params.require(:testresult).permit(:student_id, :grade, :test_id, :english, :math, :japanese, :science, :social, :art, :pe, :techhome, :music, :fivetotal, :classrank, :graderank).merge(user_id: current_user.id)

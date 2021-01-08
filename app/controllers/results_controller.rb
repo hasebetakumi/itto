@@ -35,6 +35,10 @@ class ResultsController < ApplicationController
         redirect_to results_path
     end
     
+    def allresult
+        @results = Result.all.includes(:student, :user, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+    end
+    
     private
     def create_params
         params.require(:result).permit(:student_id, :grade, :semester_id, :english, :math, :japanese, :science, :social, :art, :pe, :techhome, :music, :total).merge(user_id: current_user.id)
