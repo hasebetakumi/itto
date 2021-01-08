@@ -44,6 +44,7 @@ class IttoexamsController < ApplicationController
     
     def new
         @ittoexam = Ittoexam.new
+        @searchparameters = [params[:year], params[:month], params[:student]]
         
         require 'date'
         day = Date.today
