@@ -4,7 +4,7 @@
         <%= form_for @result do |f| %>
             <div class="report_form_group">
                 <%= f.label :student_id, '生徒'%>
-                <%= f.collection_select :student_id , Student.order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください', selected: @searchparameters[0]}, { class: 'form-control' , required: true, disabled: true} %>
+                <%= f.collection_select :student_id , Student.where(classifying: 2).order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :name, {include_blank: '選択してください', selected: @searchparameters[0]}, { class: 'form-control' , required: true, disabled: true} %>
                 <%= f.hidden_field :student_id, value: @searchparameters[0] %>
             </div>
             <div class="report_form_group">

@@ -11,7 +11,7 @@ class ResultsController < ApplicationController
             @aaa = 1
         end
         
-        @students = Student.all
+        @students = Student.where(classifying: 2).order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC)
         @semesters = Semester.all
     end
     

@@ -5,7 +5,7 @@
             <select name="student_keyword" class="result_search_box" required>
                 <option value="">生徒氏名を選択してください</option>
                 <% @students.each do |student| %>
-                    <option value="<%= student.id %>"><%= student.name %></option>
+                    <option value="<%= student.id %>"><%= student.student_info %></option>
                 <% end %>
             </select>
             <p class="search_radio">学年
