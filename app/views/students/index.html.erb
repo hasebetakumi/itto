@@ -14,7 +14,7 @@
             </div>
             <div class="form_group student_form_group">
                 <%= f.label :school_id, '学校'%>
-                <%= f.collection_select :school_id, School.all, :id, :school, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
+                <%= f.collection_select :school_id, School.all.order(classifying: :ASC), :id, :school, {include_blank: '選択してください'}, { class: 'form-control' , required: true }%>
             </div>
             <div class="form_group student_form_group">
                 <%= f.label :year, '年度'%>
