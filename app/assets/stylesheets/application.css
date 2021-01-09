@@ -99,10 +99,10 @@
 .log-in-inner{
     background-color: white;
     width:50%;
-    margin: 0 auto;
+    margin: 20px auto;
     font-size:20px;
     border-radius: 20px;
-    margin-bottom: 20px;
+
     box-shadow: 0 0px 20px rgba(0,0,0,0.2);
 }
 .login_title{
@@ -145,3 +145,4 @@
     font-size: 12px;
 }
 /*ログイン画面*/
+

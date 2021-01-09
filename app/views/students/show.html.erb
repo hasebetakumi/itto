@@ -96,11 +96,11 @@
         <div class="graph_area">
             <div class="result_graph">
                 <p class="graph_title">成績グラフ</p>
-                <%= line_chart @result_data, width: "500px", height: "250px", min: 1, max: 5, curve: false %>
+                <%= line_chart @result_data, min: 1, max: 5, curve: false, class: "graph" %>
             </div>
             <div class="result_graph">
                 <p class="graph_title">試験結果グラフ</p>
-                <%= line_chart @testresult_data, width: "500px", height: "250px", min: 1, max: 100, curve: false %>
+                <%= line_chart @testresult_data, min: 1, max: 100, curve: false, class: "graph" %>
             </div>
         </div>
         
