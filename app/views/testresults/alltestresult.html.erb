@@ -1,4 +1,27 @@
 <body class="result_body">
+
+    <div class="search_group">
+        <p class="search_title">定期試験結果検索</p>
+        <form method="get" action="/alltestresults">
+            <select name="grade_keyword" class="search_box">
+                <option value="">選択してください(学年)</option>
+                <option value="1">1年</option>
+                <option value="2">2年</option>
+                <option value="3">3年</option>
+            </select>
+            <select name="test_keyword" class="search_box">
+                <option value="">選択してください(学期)</option>
+                <% @tests.each do |test| %>
+                    <option value="<%= test.id %>"><%= test.test %></option>
+                <% end %>
+            </select>
+            <p>
+                <input type="submit" value="検索" class="search_btn">
+                <%= link_to "一覧表示", alltestresults_path, class: "search_btn" %>
+            </p>
+        </form>
+    </div>
+
     <p class="all_result_title">定期試験結果一覧</p>
     <div class="all_result">
         <% if @testresults.present? %>
