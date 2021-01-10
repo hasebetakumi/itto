@@ -36,7 +36,18 @@ class TestresultsController < ApplicationController
     end
     
     def alltestresult
-        @testresults = Testresult.all.includes(:student, :user, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        if params[:grade_keyword].present? and params[:test_keyword].present?
+            @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test)
+            @testresults = @testresults.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        elsif params[:grade_keyword].present? and params[:test_keyword].blank?
+            @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        elsif params[:grade_keyword].blank? and params[:test_keyword].present?
+             @testresults = Testresult.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        else
+            @testresults = Testresult.all.includes(:student, :user, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        end
+        
+        @tests = Test.all
     end
     
     private

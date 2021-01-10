@@ -1,0 +1,27 @@
+<body class="result_body">
+    <p class="all_result_title">講師一覧</p>
+    <div class="all_result">
+        <% if @users.present? %>
+            <table border="1" class="result_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>講師ID</th>
+                        <th>名前</th>
+                        <th>権限</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @users.each do |user| %>
+                    <tr>
+                        <td><%= link_to "講師ページ", user_path(user.id), class: "edit_result_path" %>
+                        <td><%= user.id %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.right %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <% end %>
+    </div>
+</div>

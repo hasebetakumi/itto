@@ -18,4 +18,8 @@ class UsersController < ApplicationController
         @testresults = Testresult.where(user_id: params[:id]).order(created_at: :DESC).includes(:student, :user, :test)
     end
     
+    def index
+        @users = User.all
+    end
+    
 end

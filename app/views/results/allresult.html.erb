@@ -1,4 +1,26 @@
 <body class="result_body">
+    <div class="search_group">
+        <p class="search_title">通知表検索</p>
+        <form method="get" action="/allresults">
+            <select name="grade_keyword" class="search_box">
+                <option value="">選択してください(学年)</option>
+                <option value="1">1年</option>
+                <option value="2">2年</option>
+                <option value="3">3年</option>
+            </select>
+            <select name="semester_keyword" class="search_box">
+                <option value="">選択してください(学期)</option>
+                <% @semesters.each do |semester| %>
+                    <option value="<%= semester.id %>"><%= semester.semester %></option>
+                <% end %>
+            </select>
+            <p>
+                <input type="submit" value="検索" class="search_btn">
+                <%= link_to "一覧表示", allresults_path, class: "search_btn" %>
+            </p>
+        </form>
+    </div>
+
     <p class="all_result_title">通知表一覧</p>
     <div class="all_result">
         <% if @results.present? %>

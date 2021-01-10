@@ -36,7 +36,18 @@ class ResultsController < ApplicationController
     end
     
     def allresult
-        @results = Result.all.includes(:student, :user, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        if params[:grade_keyword].present? and params[:semester_keyword].present?
+            @results = Result.where(grade: params[:grade_keyword]).includes(:user, :student, :semester)
+            @results = @results.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        elsif params[:grade_keyword].present? and params[:semester_keyword].blank?
+            @results = Result.where(grade: params[:grade_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        elsif params[:grade_keyword].blank? and params[:semester_keyword].present?
+             @results = Result.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        else
+            @results = Result.all.includes(:student, :user, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        end
+        
+        @semesters = Semester.all
     end
     
     private

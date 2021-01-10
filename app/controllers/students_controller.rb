@@ -39,8 +39,8 @@ class StudentsController < ApplicationController
                 @user_counts << user_id[1]
             end
         
-        @results = Result.where(student_id: params[:id]).order(semester_id: :ASC, grade: :ASC).includes(:student, :user, :semester)
-        @testresults = Testresult.where(student_id: params[:id]).order(test_id: :ASC, grade: :ASC).includes(:student, :user, :test)
+        @results = Result.where(student_id: params[:id]).order(grade: :ASC, semester_id: :ASC).includes(:student, :user, :semester)
+        @testresults = Testresult.where(student_id: params[:id]).order(grade: :ASC, test_id: :ASC).includes(:student, :user, :test)
         
         subjects = [{"ja" => "英語", "en" => :english}, {"ja" => "国語", "en" => :japanese}, {"ja" => "数学", "en" => :math}, {"ja" => "理科", "en" => :science}, {"ja" => "社会", "en" => :social}]
         
