@@ -14,11 +14,7 @@
                 <tbody>
                     <% @users.each do |user| %>
                     <tr>
-                        <% if current_user.id == 4 %>
-                            <td><%= link_to "講師ページ", user_path(user.id), class: "edit_result_path" %>
-                        <% else %>
-                            <td></td>
-                        <% end %>
+                        <td><%= link_to "講師ページ", user_path(user.id), class: "edit_result_path" %>
                         <td><%= user.id %></td>
                         <td><%= user.name %></td>
                         <td><%= user.right %></td>
