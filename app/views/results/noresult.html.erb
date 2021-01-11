@@ -1,7 +1,7 @@
 <body class="result_body">
     <div class="search_group">
-        <p class="search_title">通知表検索</p>
-        <form method="get" action="/allresults">
+        <p class="search_title">通知表未提出検索</p>
+        <form method="get" action="/noresults">
             <select name="grade_keyword" class="search_box">
                 <option value="">選択してください(学年)</option>
                 <option value="1">1年</option>
@@ -16,40 +16,31 @@
             </select>
             <p>
                 <input type="submit" value="検索" class="search_btn">
-                <%= link_to "一覧表示", allresults_path, class: "search_btn" %>
             </p>
         </form>
     </div>
     
     <div class="menu_group">
-        <%= link_to "未提出者検索", noresults_path, class: "report_menu_item" %>
+        <%= link_to "通知表検索", allresults_path, class: "report_menu_item" %>
     </div>
 
-    <p class="all_result_title">通知表一覧</p>
+    <p class="all_result_title">未提出者一覧</p>
     <div class="all_result">
-        <% if @results.present? %>
+        <% if @none_students.present? %>
             <table border="1" class="result_table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>生徒ID</th>
                         <th>生徒氏名</th>
-                        <th>学年</th>
-                        <th>学期</th>
-                        <th>英語</th>
-                        <th>数学</th>
-                        <th>国語</th>
-                        <th>理科</th>
-                        <th>社会</th>
-                        <th>美術</th>
-                        <th>体育</th>
-                        <th>技家</th>
-                        <th>音楽</th>
-                        <th>合計</th>
-                        <th>登録者</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%= render @results %>
+                    <% @none_students.each do |none_student| %>
+                    <tr>
+                        <td><%= none_student.id %></td>
+                        <td><a href="/students/<%= none_student.id %>" class="result_student_link"><%= none_student.student_info %></a></td>
+                    </tr>
+                    <% end %>
                 </tbody>
             </table>
         <% end %>
