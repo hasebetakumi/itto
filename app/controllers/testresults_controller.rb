@@ -50,6 +50,59 @@ class TestresultsController < ApplicationController
         @tests = Test.all
     end
     
+    def notestresult
+        if params[:grade_keyword].present? and params[:test_keyword].present?
+            @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test)
+            @testresults = @testresults.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        elsif params[:grade_keyword].present? and params[:test_keyword].blank?
+            @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        elsif params[:grade_keyword].blank? and params[:test_keyword].present?
+             @testresults = Testresult.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+        else
+            @testresults = []
+        end
+        
+        if params[:grade_keyword].present? and params[:test_keyword].present?
+            test = Test.find(params[:test_keyword])
+            test = test.test
+            @searchparameters = [params[:grade_keyword], test]
+        end
+        
+        # 未提出洗い出し
+        result_ids = []
+        @testresults.each do |result|
+            result_ids << result.student_id
+        end
+        student_ids = []
+        students = Student.where(classifying: 2)
+        students.each do |student|
+            student_ids << student.id
+        end
+        result_ids.each do |result_id|
+            @none_student_ids = student_ids.delete_if{ |id| id == result_id }
+        end
+        @none_students = []
+        if @none_student_ids.present?
+            @none_student_ids.each do |none_student_id|
+                @none_students << Student.find(none_student_id)
+            end
+        else
+            unless params[:grade_keyword].blank? and params[:test_keyword].blank?
+                @student_ids = []
+                students = Student.where(classifying: 2)
+                students.each do |student|
+                    @student_ids << student.id
+                end
+                @student_ids.each do |student_id|
+                    @none_students << Student.find(student_id)
+                end
+            end
+        end
+        
+        @tests = Test.all
+    end
+        
+    
     private
     def create_params
         params.require(:testresult).permit(:student_id, :grade, :test_id, :english, :math, :japanese, :science, :social, :art, :pe, :techhome, :music, :fivetotal, :classrank, :graderank).merge(user_id: current_user.id)
