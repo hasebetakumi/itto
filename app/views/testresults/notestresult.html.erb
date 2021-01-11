@@ -1,34 +1,36 @@
 <body class="result_body">
+
     <div class="search_group">
-        <p class="search_title">通知表未提出検索</p>
-        <form method="get" action="/noresults">
+        <p class="search_title">定期試験結果未提出者検索</p>
+        <form method="get" action="/notestresults">
             <select name="grade_keyword" class="search_box">
                 <option value="">選択してください(学年)</option>
                 <option value="1">1年</option>
                 <option value="2">2年</option>
                 <option value="3">3年</option>
             </select>
-            <select name="semester_keyword" class="search_box">
+            <select name="test_keyword" class="search_box">
                 <option value="">選択してください(学期)</option>
-                <% @semesters.each do |semester| %>
-                    <option value="<%= semester.id %>"><%= semester.semester %></option>
+                <% @tests.each do |test| %>
+                    <option value="<%= test.id %>"><%= test.test %></option>
                 <% end %>
             </select>
             <p>
                 <input type="submit" value="検索" class="search_btn">
+                <%= link_to "一覧表示", alltestresults_path, class: "search_btn" %>
             </p>
         </form>
     </div>
     
     <div class="menu_group">
-        <%= link_to "通知表検索", allresults_path, class: "report_menu_item" %>
+        <%= link_to "定期試験結果検索", noresults_path, class: "report_menu_item" %>
     </div>
     
     <% if @searchparameters.present? %>
         <p class="all_result_title"><%= @searchparameters[0]%>年　<%= @searchparameters[1]%>　の未提出者</p>
     <% end %>
     <div class="all_result">
-        <% if @none_students.present? %>
+        <% if @testresults.present? %>
             <table border="1" class="result_table">
                 <thead>
                     <tr>
@@ -48,4 +50,3 @@
         <% end %>
     </div>
 </div>
-    
