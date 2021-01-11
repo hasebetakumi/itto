@@ -89,7 +89,7 @@ class ResultsController < ApplicationController
         else
             unless params[:grade_keyword].blank? and params[:semester_keyword].blank?
                 @student_ids = []
-                students = Student.where(classifying: 2)
+                students = Student.where(classifying: [1, 2])
                 students.each do |student|
                     @student_ids << student.id
                 end

@@ -39,6 +39,17 @@ class IttoexamsController < ApplicationController
             @none_student_ids.each do |none_student_id|
                 @none_students << Student.find(none_student_id)
             end
+        else
+            unless params[:year_keyword].blank? and params[:month_keyword].blank?
+                @student_ids = []
+                students = Student.where(classifying: 2)
+                students.each do |student|
+                    @student_ids << student.id
+                end
+                @student_ids.each do |student_id|
+                    @none_students << Student.find(student_id)
+                end
+            end
         end  
     end
     
