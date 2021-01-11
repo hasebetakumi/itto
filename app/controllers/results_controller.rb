@@ -62,6 +62,12 @@ class ResultsController < ApplicationController
             @results = []
         end
         
+        if params[:grade_keyword].present? and params[:semester_keyword].present?
+            semester = Semester.find(params[:semester_keyword])
+            semester = semester.semester
+            @searchparameters = [params[:grade_keyword], semester]
+        end
+        
         # 未提出洗い出し
         result_ids = []
         @results.each do |result|
