@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'noresults' => 'results#noresult'
     resources :testresults, only: [:index, :new, :create, :edit, :update]
     get 'alltestresults' => 'testresults#alltestresult'
+    get 'notestresults' => 'testresults#notestresult'
     resources :targets, only: [:new, :create, :destroy]
     resources :ittoexams, only: [:index, :new, :create, :edit, :update]
 end
