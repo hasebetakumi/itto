@@ -38,6 +38,8 @@ class IttoexamsController < ApplicationController
         if @none_student_ids.present?
             @none_student_ids.each do |none_student_id|
                 @none_students << Student.find(none_student_id)
+                @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana]]}
+
             end
         else
             unless params[:year_keyword].blank? and params[:month_keyword].blank?
@@ -48,6 +50,8 @@ class IttoexamsController < ApplicationController
                 end
                 @student_ids.each do |student_id|
                     @none_students << Student.find(student_id)
+                    @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana]]}
+
                 end
             end
         end  
