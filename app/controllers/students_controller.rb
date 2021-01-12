@@ -1,17 +1,17 @@
 class StudentsController < ApplicationController
     def index
-        @elementary_students = Student.where(classifying: 1).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC)
-        @junior_high_school_students = Student.where(classifying: 2).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC)
-        @high_school_students = Student.where(classifying: 3).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC)
-        @left_students = Student.where(classifying: 4).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC)
+        @elementary_students = Student.where(classifying: 1).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC, given_name_kana: :ASC)
+        @junior_high_school_students = Student.where(classifying: 2).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC, given_name_kana: :ASC)
+        @high_school_students = Student.where(classifying: 3).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC, given_name_kana: :ASC)
+        @left_students = Student.where(classifying: 4).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC, given_name_kana: :ASC)
         @student = Student.new
     end
     
     def create
         Student.create(student_params)
-        @elementary_students = Student.where(classifying: 1).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC)
-        @junior_high_school_students = Student.where(classifying: 2).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC)
-        @high_school_students = Student.where(classifying: 3).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC)
+        @elementary_students = Student.where(classifying: 1).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC, given_name_kana: :ASC)
+        @junior_high_school_students = Student.where(classifying: 2).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC, given_name_kana: :ASC)
+        @high_school_students = Student.where(classifying: 3).includes(:school, :student_type).order(grade: :ASC, family_name_kana: :ASC, given_name_kana: :ASC)
     end
     
     def edit

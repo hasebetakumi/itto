@@ -11,6 +11,10 @@ class Student < ApplicationRecord
         "#{family_name} #{given_name}"
     end
     
+    def name_kana
+        "#{family_name_kana}　#{given_name_kana}"
+    end
+    
     def student_info
         if classifying == 1
             classifying_detail = "小"

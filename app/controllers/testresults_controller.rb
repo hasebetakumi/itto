@@ -38,13 +38,13 @@ class TestresultsController < ApplicationController
     def alltestresult
         if params[:grade_keyword].present? and params[:test_keyword].present?
             @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test)
-            @testresults = @testresults.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @testresults = @testresults.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         elsif params[:grade_keyword].present? and params[:test_keyword].blank?
-            @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         elsif params[:grade_keyword].blank? and params[:test_keyword].present?
-             @testresults = Testresult.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+             @testresults = Testresult.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         else
-            @testresults = Testresult.all.includes(:student, :user, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @testresults = Testresult.all.includes(:student, :user, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         end
         
         @tests = Test.all
@@ -53,11 +53,11 @@ class TestresultsController < ApplicationController
     def notestresult
         if params[:grade_keyword].present? and params[:test_keyword].present?
             @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test)
-            @testresults = @testresults.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @testresults = @testresults.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         elsif params[:grade_keyword].present? and params[:test_keyword].blank?
-            @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @testresults = Testresult.where(grade: params[:grade_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         elsif params[:grade_keyword].blank? and params[:test_keyword].present?
-             @testresults = Testresult.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+             @testresults = Testresult.where(test_id: params[:test_keyword]).includes(:user, :student, :test).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         else
             @testresults = []
         end
@@ -85,6 +85,7 @@ class TestresultsController < ApplicationController
         if @none_student_ids.present?
             @none_student_ids.each do |none_student_id|
                 @none_students << Student.find(none_student_id)
+                @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana], a[:given_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana], b[:given_name_kana]]}
             end
         else
             unless params[:grade_keyword].blank? and params[:test_keyword].blank?
@@ -95,6 +96,7 @@ class TestresultsController < ApplicationController
                 end
                 @student_ids.each do |student_id|
                     @none_students << Student.find(student_id)
+                    @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana], a[:given_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana], b[:given_name_kana]]}
                 end
             end
         end
