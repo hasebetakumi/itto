@@ -38,13 +38,13 @@ class ResultsController < ApplicationController
     def allresult
         if params[:grade_keyword].present? and params[:semester_keyword].present?
             @results = Result.where(grade: params[:grade_keyword]).includes(:user, :student, :semester)
-            @results = @results.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @results = @results.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         elsif params[:grade_keyword].present? and params[:semester_keyword].blank?
-            @results = Result.where(grade: params[:grade_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @results = Result.where(grade: params[:grade_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         elsif params[:grade_keyword].blank? and params[:semester_keyword].present?
-             @results = Result.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+             @results = Result.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         else
-            @results = Result.all.includes(:student, :user, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @results = Result.all.includes(:student, :user, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         end
         
         @semesters = Semester.all
@@ -53,11 +53,11 @@ class ResultsController < ApplicationController
     def noresult
         if params[:grade_keyword].present? and params[:semester_keyword].present?
             @results = Result.where(grade: params[:grade_keyword]).includes(:user, :student, :semester)
-            @results = @results.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @results = @results.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         elsif params[:grade_keyword].present? and params[:semester_keyword].blank?
-            @results = Result.where(grade: params[:grade_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @results = Result.where(grade: params[:grade_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         elsif params[:grade_keyword].blank? and params[:semester_keyword].present?
-             @results = Result.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+             @results = Result.where(semester_id: params[:semester_keyword]).includes(:user, :student, :semester).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
         else
             @results = []
         end
@@ -85,18 +85,18 @@ class ResultsController < ApplicationController
         if @none_student_ids.present?
             @none_student_ids.each do |none_student_id|
                 @none_students << Student.find(none_student_id)
-                @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana]]}
+                @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana], a[:given_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana], b[:given_name_kana]]}
             end
         else
             unless params[:grade_keyword].blank? and params[:semester_keyword].blank?
                 @student_ids = []
-                students = Student.where(classifying: [1, 2])
+                students = Student.where(classifying: 2)
                 students.each do |student|
                     @student_ids << student.id
                 end
                 @student_ids.each do |student_id|
                     @none_students << Student.find(student_id)
-                    @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana]]}
+                    @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana], a[:given_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana], b[:given_name_kana]]}
                 end
             end
         end
