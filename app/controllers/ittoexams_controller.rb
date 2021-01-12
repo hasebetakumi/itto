@@ -9,10 +9,10 @@ class IttoexamsController < ApplicationController
         
         if params[:year_keyword].present? and params[:month_keyword].present?
             ittoexams = Ittoexam.where(year: params[:year_keyword]).includes(:student)
-            @ittoexams = ittoexams.where(month: params[:month_keyword]).includes(:student, :user).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @ittoexams = ittoexams.where(month: params[:month_keyword]).includes(:student, :user).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
             @searchparameters = [params[:year_keyword], params[:month_keyword]]
         else       
-            @ittoexams = Ittoexam.where(year: @thisyear, month: @thismonth).includes(:student, :user).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc')
+            @ittoexams = Ittoexam.where(year: @thisyear, month: @thismonth).includes(:student, :user).order('students.classifying asc', 'students.grade asc', 'students.family_name_kana asc', 'students.given_name_kana asc')
             @searchparameters = [@thisyear, @thismonth]
         end
         
@@ -38,7 +38,7 @@ class IttoexamsController < ApplicationController
         if @none_student_ids.present?
             @none_student_ids.each do |none_student_id|
                 @none_students << Student.find(none_student_id)
-                @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana]]}
+                @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana], a[:given_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana], b[:given_name_kana]]}
 
             end
         else
@@ -50,7 +50,7 @@ class IttoexamsController < ApplicationController
                 end
                 @student_ids.each do |student_id|
                     @none_students << Student.find(student_id)
-                    @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana]]}
+                    @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana], a[:given_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana], b[:given_name_kana]]}
 
                 end
             end
