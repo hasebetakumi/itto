@@ -72,9 +72,7 @@ class IttoexamsController < ApplicationController
     
     def create
         ittoexam = Ittoexam.where(year: params.require(:ittoexam)[:year], month: params.require(:ittoexam)[:month], student_id: params.require(:ittoexam)[:student_id])
-        if ittoexam.present?
-            
-        else
+        unless ittoexam.present?
             Ittoexam.create(create_params)
             redirect_to ittoexams_path
         end
