@@ -1,4 +1,4 @@
-inherit_from: .rubocop_todo.yml
+
 
 # The behavior of RuboCop can be controlled via the .rubocop.yml
 # configuration file. It makes it possible to enable/disable
@@ -75,7 +75,9 @@ Lint/StructNewOverride:
 Layout/LineLength:
   Max: 300
 
+# 1行が長い
 Metrics/AbcSize:
+  Max: 105
   Exclude:
     - 'lib/tasks/dev.rake'
 
@@ -93,7 +95,7 @@ Metrics/ClassLength:
 
 Metrics/MethodLength:
   CountComments: false
-  Max: 15
+  Max: 100
   Exclude:
     - 'lib/tasks/dev.rake'
 
@@ -177,3 +179,31 @@ Style/RegexpLiteral:
 # https://rubocop.readthedocs.io/en/stable/cops_style/#styleslicingwithrange
 Style/SlicingWithRange:
   Enabled: true
+
+#"has_many"
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+  
+# 変数の破壊的変更を許可 ruby3.0よりデフォルトでtrueになる
+Style/FrozenStringLiteralComment:
+  Enabled: false
+  
+# メソッド複雑すぎ
+CyclomaticComplexity:
+  Max: 21
+
+#メソッド複雑すぎ
+Metrics/PerceivedComplexity:
+  Max: 23
+
+# 空の行を許可　ガード節の後に空行入れないとだから
+TrailingWhitespace:
+  Enabled: false
+
+# ガード（return if で処理を短くする）を使用しない
+GuardClause:
+  Enabled: false
+
+# if elsif に対してwhen caseを強要しない
+CaseLikeIf:
+  Enabled: false
