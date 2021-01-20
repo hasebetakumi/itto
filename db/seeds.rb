@@ -6,3 +6,43 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Classifying.create!(
+    classifying: '小学生テスト',
+)
+
+Classifying.create!(
+    classifying: '中学生テスト',
+)
+
+School.create!(
+    classifying: 2,
+    school: 'テスト中学校'
+)
+
+Semester.create!(
+    semester: '1学期テスト'
+)
+
+StudentType.create!(
+    student_type: '完璧主義者タイプ'
+)
+
+Student.create!(
+    classifying: 2,
+    grade: 3,
+    school_id: 1,
+    year: 2005,
+    family_name: 'テスト',
+    given_name: 'テスト',
+    family_name_kana: 'テスト',
+    given_name_kana: 'テスト',
+    student_type_id: 1,
+)
+
+Subject.create!(
+    subject: '英語'
+)
+
+Test.create!(
+    test: '1学期中間'
+)
