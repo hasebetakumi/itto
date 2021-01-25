@@ -4,4 +4,5 @@ class Ittoexam < ApplicationRecord
   
   validates :year, presence: true
   validates :month, presence: true
+  validates :student_id, presence: true
 end
