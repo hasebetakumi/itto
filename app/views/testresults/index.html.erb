@@ -13,7 +13,7 @@
                 <input type="radio" name="grade_keyword" value="2">2
                 <input type="radio" name="grade_keyword" value="3">3
             </p>
-            <p class="search_radio">試験名
+            <p class="search_radio search_radio_test">試験名
                 <% @tests.each do |test| %>
                     <input type="radio" name="test_keyword" value="<%= test.id %>" required><%= test.test %>
                 <% end %>
