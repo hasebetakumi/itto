@@ -13,7 +13,7 @@
                 <input type="radio" name="grade_keyword" value="2">2
                 <input type="radio" name="grade_keyword" value="3">3
             </p>
-            <p class="search_radio">学期
+            <p class="search_radio search_radio_test">学期
                 <% @semesters.each do |semester| %>
                     <input type="radio" name="semester_keyword" value="<%= semester.id %>" required><%= semester.semester %>
                 <% end %>

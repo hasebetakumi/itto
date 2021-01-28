@@ -46,3 +46,12 @@ Subject.create!(
 Test.create!(
     test: '1学期中間'
 )
+
+User.create!(
+    email: 'nba.syuu.k@gmail.com',
+    password: '111111',
+    confirmed_at: '2021-01-11 13:09:40',
+    confirmation_sent_at: '2021-01-11 13:09:22',
+    right: '1',
+    name: 'テスト'
+    )

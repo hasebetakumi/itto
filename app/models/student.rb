@@ -6,7 +6,17 @@ class Student < ApplicationRecord
   has_many :testresults, dependent: :delete_all
   has_many :targets, dependent: :delete_all
   has_many :ittoexams, dependent: :delete_all
+  
+  validates :school_id, presence: true
+  validates :student_type_id, presence: true
+  validates :grade, presence: true
+  validates :classifying, presence: true
+  validates :family_name, presence: true
+  validates :given_name, presence: true
+  validates :family_name_kana, presence: true
+  validates :given_name_kana, presence: true
 
+  
   def name
     "#{family_name} #{given_name}"
   end
