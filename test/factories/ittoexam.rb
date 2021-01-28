@@ -2,8 +2,8 @@ FactoryBot.define do
     factory :ittoexam do
         association :user
         association :student
-        year {"2020"}
-        month {"1"}
+        year {"2022"}
+        month {"2"}
         
     end
 end
