@@ -3,6 +3,6 @@ FactoryBot.define do
     association :student
     association :test
     association :user
-    grade {"1"}
+    grade { '1' }
   end
 end
