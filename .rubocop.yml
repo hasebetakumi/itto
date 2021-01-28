@@ -29,6 +29,7 @@ AllCops:
     - 'lib/tasks/auto_annotate_models.rake'
     - 'config/**/*'
     - 'script/**/*'
+    
 
 Rails:
   Enabled: true
@@ -89,6 +90,7 @@ Metrics/BlockLength:
     - 'spec/**/*'
     - 'app/views/**/*.jbuilder'
     - 'lib/tasks/dev.rake'
+    - "spec/**/*"
 
 Metrics/ClassLength:
   CountComments: false
