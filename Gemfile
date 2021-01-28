@@ -64,6 +64,8 @@ group :test do
   gem 'chromedriver-helper'
   # テスト用データ
   gem 'factory_bot_rails'
+  # circleci並列実行用
+  gem "rspec_junit_formatter"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
