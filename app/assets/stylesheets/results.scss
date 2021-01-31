@@ -38,17 +38,39 @@
 .all_result{
     text-align: center;
     padding-top: 20px;
+    width: 85%;
+    margin: 0 auto;
 }
 .result_table{
-    margin: 20px auto;
-    width: 80%;
+    width: 1250px;
     background-color: white;
 }
 .search_alert{
     font-size: 17px;
 }
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+.all_result{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+}
+
+@media (max-width: 900px){
+.search_group_result{
+    width: 75%;
+}
+}
+
+@media (max-width: 560px){
+}
+
+
 // results/index
 
+// _________________________________________________________________________
 
 // results/_result
 .edit_result_path{
@@ -72,6 +94,7 @@
 }
 // results/_result
 
+// _____________________________________________________________________________
 
 // results/new
 .result_new_body{
@@ -99,8 +122,32 @@
 .result_new_btn{
     margin-top: 10px;
 }
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+.result_num_form{
+    width: 35%;
+    
+}
+}
+
+@media (max-width: 900px){
+.result_num_form{
+    width: 60%;
+    
+}
+}
+
+@media (max-width: 560px){
+.result_num_form{
+    width: 90%;
+    
+}
+}
 // results/new
 
+// ________________________________________________________________________
 
 // results/edit
 // results/edit
@@ -112,3 +159,15 @@
     margin-top: 25px;
     margin-bottom: 10px;
 }
+
+// results/allresult
+
+// ___________________________________________________________________
+
+// results/noresult
+.noresult_table{
+    background-color: white;
+    width: 350px;
+    margin: 10px auto;
+}
+

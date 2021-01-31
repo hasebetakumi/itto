@@ -16,7 +16,7 @@
 }
 .student_form{
     background-color: white;
-    width:50%;
+    width: 50%;
     margin: 40px auto;
     border-radius: 20px;
     display: flex;
@@ -33,7 +33,29 @@
 .btn_student{
     margin-bottom: 5px;
 }
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+}
+
+@media (max-width: 900px){
+.student_form{
+    width: 75%;
+}
+}
+
+@media (max-width: 560px){
+.student_form{
+    width: 75%;
+}
+.name_group{
+    display: block;
+}
+}
 // students/index 生徒追加フォーム
+
+// ______________________________________________________________
 
 
 // students/index 生徒一覧
@@ -45,16 +67,17 @@
     margin: 20px auto;
     margin-top: 10px;
     margin-bottom: 50px;
-    width:75%;
+    width: 1200px;
 }
 // students/index 生徒一覧
 
+// _____________________________________________________________
 
 // students/show
 .student_page_table{
     border-radius: 5px;
     box-shadow: 0 0px 20px rgba(0,0,0,0.2);
-    margin-top: 40px;
+    margin: 20px 10px 10px 10px;
     text-align: center;
 }
 .graph_area{
@@ -76,5 +99,44 @@
 }
 .late_report_item_student{
     color: blue;
+}
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+
+.student_page_table_for_overflow{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 90%;
+    margin: 0 auto;
+}
+.graph_area{
+    display: block;
+    width: 90%;
+}
+.result_graph{
+    width: 70%;
+    margin: 20px auto;
+}
+}
+
+@media (max-width: 900px){
+.student_page_table_for_overflow{
+    width: 95%;
+}
+.result_graph{
+    width: 100%;
+}
+}
+
+@media (max-width: 560px){
+.result_graph{
+    width: 600px;
+}
+.graph_area{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
 }
 // students/show

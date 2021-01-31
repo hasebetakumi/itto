@@ -82,8 +82,47 @@
     background-color: red;
     color: white;
 }
+
+/* 1280 macbook13インチ 900タブレット　560スマホ */
+
+@media (max-width: 1279px){
+
+}
+
+@media (max-width: 900px){
+.user_name{
+    font-size: 12px;
+    margin-left: 15px;
+}
+.main_menu_btn{
+    font-size: 14px;
+}
+.btn_login_logout{
+    font-size: 14px;
+}
+}
+
+@media (max-width: 560px){
+.user_name{
+    margin-left: 10px;
+}
+.user_name_item{
+    display: none;
+}
+.user_name_subitem{
+    display: none;
+}
+.main_menu_btn{
+    font-size: 10px;
+}
+.btn_login_logout{
+    font-size: 10px;
+}
+}
+
 /*application*/
 
+// _______________________________________________________
 
 /*新規登録画面*/
 .signup_body{
@@ -102,7 +141,6 @@
     margin: 20px auto;
     font-size:20px;
     border-radius: 20px;
-
     box-shadow: 0 0px 20px rgba(0,0,0,0.2);
 }
 .login_title{
@@ -137,7 +175,26 @@
     background: #333;
     color: #fff;
 }
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+}
+
+@media (max-width: 900px){
+.log-in-inner{
+    width:75%;
+}
+}
+
+@media (max-width: 560px){
+.log-in-inner{
+    width:85%;
+}
+}
 /*新規登録画面*/
+
+// ________________________________________________________
 
 
 /*ログイン画面*/
@@ -145,4 +202,3 @@
     font-size: 12px;
 }
 /*ログイン画面*/
-

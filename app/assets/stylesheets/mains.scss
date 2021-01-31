@@ -25,9 +25,10 @@
     padding: 20px;
     border-radius: 15px;
 }
+
 .main_menu_table{
     background-color: white;
-    margin-right:50px;
+    margin: 0px 20px 0px 20px;
     display: flex;
     flex-direction: column;
 }
@@ -47,4 +48,49 @@
     color: #fff;
 }
 
-//  git test
+.main_intro{
+    width: 80%;
+    margin: 10px auto;
+}
+.main_intro_item {
+    padding: 0;
+}
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+.menu_table{
+    width: 75%;
+}
+}
+
+@media (max-width: 900px){
+.main_menu_table{
+    margin: 0px 10px 0px 10px;
+}
+.menu_item{
+    padding: 15px 20px 15px 20px;
+    width: 100%;
+}
+}
+
+@media (max-width: 560px){
+.menu_table{
+    flex-direction: column;
+    margin: 0px auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+.main_menu_table{
+    background-color: white;
+    margin: 10px auto;
+}
+.menu_item{
+    padding: 15px 30px 15px 30px;
+    width: 100%;
+}
+.main_intro{
+    text-align: left;
+}
+}
+

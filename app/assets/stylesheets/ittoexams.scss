@@ -18,7 +18,7 @@
 }
 .ittoexam_result_table{
     background-color: white;
-    width: 80%;
+    width: 90%;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 300px;
@@ -36,7 +36,41 @@
 .ittoexam_table{
     text-align: center;
 }
+.student_table_group{
+    width: 85%;
+    margin: 0 auto;
+}
 
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+.ittoexam_result_table{
+    padding: 10px;
+}
+.ittoexam_result_table{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.student_table_group{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+}
+
+@media (max-width: 900px){
+}
+
+@media (max-width: 560px){
+.ittoexam_serchparameters{
+    margin-top: 15px;
+}
+}
+// ittoexams/index
+
+// ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 
 // ittoexams_new
 .ittoexam_score{
@@ -52,4 +86,21 @@
 }
 .ittoexam_new_btn{
     margin-bottom: 10px;
+}
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+}
+
+@media (max-width: 900px){
+.ittoexam_search_group{
+    width: 50%;
+}
+}
+
+@media (max-width: 560px){
+.ittoexam_search_group{
+    width: 75%;
+}
 }

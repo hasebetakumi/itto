@@ -73,6 +73,8 @@
     margin: 30px auto;
     box-shadow: 0 0px 20px rgba(0,0,0,0.2);
     border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .mypage_result_table{
     width: 95%;
@@ -103,7 +105,54 @@
     overflow-y: scroll;
     overflow-x: hidden;
     height: 500px;
-    width: 80%;
+    width: 90%;
     margin: 0px auto;
+    padding: 0px;
+}
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+.class_data{
+    width: 90%;
+}
+.student_data_result{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.mypage_result_table{
+    width: 1200px;
+}
+.late_report{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 68%;
+}
+.late_report_for_overflow{
+    width: 700px;
+}
+.user_data{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 30%;
+}
+.user_data_for_overflow{
+    width: 200px;
+}
+.student_data_result{
+    width: 90%;
+}
+}
+
+@media (max-width: 900px){
+.class_data{
+    width: 95%;
+}
+.student_data_result{
+    width: 95%;
+}
+}
+
+@media (max-width: 560px){
 }
 // users/show
