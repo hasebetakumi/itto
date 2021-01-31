@@ -16,7 +16,7 @@
 }
 .student_form{
     background-color: white;
-    width:50%;
+    width: 50%;
     margin: 40px auto;
     border-radius: 20px;
     display: flex;
@@ -33,7 +33,23 @@
 .btn_student{
     margin-bottom: 5px;
 }
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+}
+
+@media (max-width: 900px){
+}
+
+@media (max-width: 560px){
+.student_form{
+    width: 75%;
+}
+}
 // students/index 生徒追加フォーム
+
+// ______________________________________________________________
 
 
 // students/index 生徒一覧
