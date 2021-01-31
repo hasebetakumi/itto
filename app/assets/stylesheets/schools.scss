@@ -32,4 +32,32 @@
     margin: 20px auto;
     width:50%;
 }
+
+// 1280 macbook13インチ 900タブレット　560スマホ
+
+@media (max-width: 1279px){
+}
+
+@media (max-width: 900px){
+.school_form{
+    width: 50%;
+}
+.all_school{
+    width: 75%;
+}
+}
+
+@media (max-width: 560px){
+.school_form{
+    width: 75%;
+}
+.school_table{
+    margin: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.all_school{
+    width: 500px;;
+}
+}
 // schools/index
