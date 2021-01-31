@@ -40,11 +40,17 @@
 }
 
 @media (max-width: 900px){
+.student_form{
+    width: 75%;
+}
 }
 
 @media (max-width: 560px){
 .student_form{
     width: 75%;
+}
+.name_group{
+    display: block;
 }
 }
 // students/index 生徒追加フォーム
