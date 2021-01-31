@@ -2,36 +2,40 @@
     <p class="mypage_title"><%= @user.name %>　先生のページです。</p>
     <div class="class_data">
         <div class="late_report">
-            <p class="sub_title">直近の授業</p>
-            <% @reports.each do |report|%>
-                <form method="get" action="/reports/new" style="display: inline">
-                    <input type="hidden" name="student" value="<%= report.student_id %>">
-                    <input type="hidden" name="classifying" value="<%= report.classifying_id %>">
-                    <input type="hidden" name="subject" value="<%= report.subject_id %>">
-                    <input type="submit" value="新規登録" class="hidden_data_btn">
-                </form>
-                <form method="get" action="/reports/<%= report.id %>/edit" style="display: inline">
-                    <input type="submit" value="編集" class="hidden_data_btn">
-                </form>
-                <a href="/students/<%= report.student.id %>" class="late_report_item"><%= report.student.name %></a>
-                <%= report.classifying.classifying %>
-                <%= report.subject.subject %>
-                <%= report.created_at.to_s(:datetime_jp) %>
-                <a class="star5_rating" data-rate="<%= report.understanding %>"></a><br>
-            <% end %>
+            <div class="late_report_for_overflow">
+                <p class="sub_title">直近の授業</p>
+                <% @reports.each do |report|%>
+                    <form method="get" action="/reports/new" style="display: inline">
+                        <input type="hidden" name="student" value="<%= report.student_id %>">
+                        <input type="hidden" name="classifying" value="<%= report.classifying_id %>">
+                        <input type="hidden" name="subject" value="<%= report.subject_id %>">
+                        <input type="submit" value="新規登録" class="hidden_data_btn">
+                    </form>
+                    <form method="get" action="/reports/<%= report.id %>/edit" style="display: inline">
+                        <input type="submit" value="編集" class="hidden_data_btn">
+                    </form>
+                    <a href="/students/<%= report.student.id %>" class="late_report_item"><%= report.student.name %></a>
+                    <%= report.classifying.classifying %>
+                    <%= report.subject.subject %>
+                    <%= report.created_at.to_s(:datetime_jp) %>
+                    <a class="star5_rating" data-rate="<%= report.understanding %>"></a><br>
+                <% end %>
+            </div>
         </div>
         <div class="user_data">
-            <p class="sub_title">担当生徒（授業回数）</p>
-            <div class="user_data_group">
-                <div>
-                    <% @students.each do |student| %>
-                        <a class="user_data_item" ><%= student.name %></a><br>
-                    <% end %>
-                </div>
-                <div>
-                    <% @student_counts.each do |count| %>
-                        <%= count %>回<br>
-                    <% end %>
+            <div class="user_data_for_overflow">
+                <p class="sub_title">担当生徒（授業回数）</p>
+                <div class="user_data_group">
+                    <div>
+                        <% @students.each do |student| %>
+                            <a class="user_data_item" ><%= student.name %></a><br>
+                        <% end %>
+                    </div>
+                    <div>
+                        <% @student_counts.each do |count| %>
+                            <%= count %>回<br>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>
