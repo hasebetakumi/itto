@@ -3,7 +3,7 @@ FactoryBot.define do
     association :user
     association :student
     year { '2022' }
-    month { '2' }
+    month { '1' }
       
   end
 end
