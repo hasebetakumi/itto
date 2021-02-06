@@ -56,6 +56,8 @@ password: Password-1
 <a id="demo"></a>
 ## デモ
 
+授業報告登録のデモ動画
+
 <img src="https://github.com/hasebetakumi/itto/wiki/images/itto.gif">
 
 <a id="development"></a>
