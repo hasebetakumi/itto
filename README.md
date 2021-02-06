@@ -56,7 +56,7 @@ password: Password-1
 <a id="demo"></a>
 ## デモ
 
-![授業報告登録のデモ動画](https://raw.github.com/wiki/ユーザ名/リポジトリ名/画像へのパス)
+<img src="https://github.com/hasebetakumi/itto/wiki/images/itto.gif">
 
 <a id="development"></a>
 ## 開発環境、利用したツール
