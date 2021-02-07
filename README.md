@@ -10,11 +10,12 @@
 6. [開発環境、利用したツール](#development)
 7. [本番環境](#production)
 8. [インストール方法](#install)
-9. [テスト方法](#test)
-10. [デプロイ方法](#deploy)
-11. [更新履歴](#update)
-12. [バージョンアップ予定](#versionup)
-13. [ライセンス](#license)
+9. [メール認証の設定](#mail)
+10. [テスト方法](#test)
+11. [デプロイ方法](#deploy)
+12. [更新履歴](#update)
+13. [バージョンアップ予定](#versionup)
+14. [ライセンス](#license)
 
 <a id="link"></a>
 ## リンク
@@ -152,7 +153,40 @@ email: nba.syuu.k@gmail.com
 password: 111111
 ```
 
-でログイン
+でログイン。下のメール認証の設定に進んでください。
+
+<a id="mail"></a>
+## メール認証の設定（gmailを用います）
+configというgemを用いる。
+すでにbundle installは行っているため、以下のコードを実行し設定ファイルを生成する。
+
+```
+bundle exec rails g config:install
+```
+
+config/settings.local.ymlというファイルが生成されるので、その中に
+
+```
+development:
+    url: '開発環境のURL'
+    email: "送信元に使用するアドレス@gmail.com"
+    password: "上のgmailアカウントのこのアプリに対するアプリパスワード"
+```
+
+を記述する。
+
+これで開発環境でのメール認証設定は終了。
+
+しかし、このファイルはgitignoreしているため、本番環境にはgit cloneできない。
+本番環境ではviコマンド等でconfig/environments/production.rb、config/devise.rbの中を、
+
+```
+Settings.production[:url]→本番環境のURL
+Settings.development[:email]→送信元gmail
+Settings.development[:password]→上のgmailアカウントのこのアプリに対するアプリパスワード
+```
+
+に、手動で変更する必要がある。
 
 <a id="test"></a>
 ## テスト方法
