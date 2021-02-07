@@ -75,6 +75,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'chart-js-rails', '~> 0.1.4' #=> 追加
 gem 'chartkick'
+gem 'config'
 
 group :production, :staging do
   gem 'unicorn'
