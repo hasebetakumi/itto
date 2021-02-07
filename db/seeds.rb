@@ -7,11 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Classifying.create!(
-    classifying: '小学生テスト',
+    classifying: '小学生',
 )
 
 Classifying.create!(
-    classifying: '中学生テスト',
+    classifying: '中学生',
+)
+
+Classifying.create!(
+    classifying: '高校生',
 )
 
 School.create!(
@@ -33,14 +37,26 @@ Student.create!(
     school_id: 1,
     year: 2005,
     family_name: 'テスト',
-    given_name: 'テスト',
+    given_name: '太郎',
     family_name_kana: 'テスト',
-    given_name_kana: 'テスト',
+    given_name_kana: 'たろう',
     student_type_id: 1,
 )
 
 Subject.create!(
     subject: '英語'
+)
+Subject.create!(
+    subject: '数学'
+)
+Subject.create!(
+    subject: '国語'
+)
+Subject.create!(
+    subject: '理科'
+)
+Subject.create!(
+    subject: '社会'
 )
 
 Test.create!(
@@ -48,8 +64,8 @@ Test.create!(
 )
 
 User.create!(
-    email: 'nba.syuu.k@gmail.com',
-    password: '111111',
+    email: 'pro.only.21@gmail.com',
+    password: 'Password-1',
     confirmed_at: '2021-01-11 13:09:40',
     confirmation_sent_at: '2021-01-11 13:09:22',
     right: '1',
