@@ -43,7 +43,7 @@ class IttoexamsController < ApplicationController
     else
       unless params[:year_keyword].blank? and params[:month_keyword].blank?
         @student_ids = []
-        students = Student.where(classifying: 2)
+        students = Student.where(classifying: [1, 2])
         students.each do |student|
           @student_ids << student.id
         end
