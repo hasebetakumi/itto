@@ -173,7 +173,24 @@ development:
     password: "上のgmailアカウントのこのアプリに対するアプリパスワード"
 ```
 
-を記述する。
+を記載。
+
+また、config/environments/production.rb、config/environments/development.rb、config/devise.rbの中の<br>
+
+```
+"Settings.production[:url]"
+"Settings.development[:url]"
+"Settings.development[:email]"
+"Settings.development[:password]"
+
+```
+
+の""を全て外す。
+""をつけていないと、circleciのdb:create時に[]の中が空ですよと怒られる。<br>
+中身が入っているsettings.local.ymlはgitignoreされているため当然だが、<
+""をつけたままだと、メール認証は機能しないので注意
+（これはどうすれば楽になるのか、）
+
 
 これで開発環境でのメール認証設定は終了。
 
