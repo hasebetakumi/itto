@@ -12,14 +12,6 @@ class HighfilesController < ApplicationController
         redirect_to new_highfile_path
     end
     
-    def edit
-        
-    end
-    
-    def update
-        
-    end
-    
     def destroy
         
     end
