@@ -13,7 +13,11 @@ class HighfilesController < ApplicationController
     end
     
     def destroy
-        
+        highfile = Highfile.find(params[:id])
+        if highfile.user_id == current_user.id
+            highfile.destroy
+        end
+        redirect_to new_highfile_path
     end
     
     private
