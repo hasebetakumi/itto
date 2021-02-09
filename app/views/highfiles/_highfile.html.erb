@@ -1,9 +1,9 @@
 <tr>
     <td><%= link_to "削除", highfile_path(highfile.id), method: :delete, class: "edit_result_path" %></td>
     <td><a href="/highfiles/<%= highfile.id %>" class="edit_result_path" >詳細</a></td>
-    <td><%= highfile.student.student_info %></td>
+    <td><a href="/students/<%= highfile.student.id %>" class="result_student_link"><%= highfile.student.student_info %></a></td>
     <td><%= highfile.image_name %></td>
     <td><%= highfile.image_identifier %></td>
-    <td><img src="<%= highfile.image %>" width="100"></td>
+    <td><img src="<%= highfile.image %>" width="100" class="highfile_image"></td>
     <td><%= highfile.user.name %></td>
 </tr>
