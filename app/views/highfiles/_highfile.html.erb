@@ -1,4 +1,7 @@
-<%= highfile.student_id %>
-<%= highfile.image_name %>
-<%= highfile.image %>
-<%= highfile.user_id %>
+<tr>
+    <td><%= highfile.student.student_info %></td>
+    <td><%= highfile.image_name %></td>
+    <td><%= highfile.image_identifier %></td>
+    <td><img src="<%= highfile.image %>" width="100"></td>
+    <td><%= highfile.user.name %></td>
+</tr>
