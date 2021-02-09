@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :testresults, dependent: :delete_all
   has_many :targets, dependent: :delete_all
   has_many :ittoexams, dependent: :delete_all
+  has_many :highfiles, dependent: :delete_all
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
