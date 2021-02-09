@@ -19,7 +19,7 @@ describe 'Highfile', type: :feature do
     it '新規登録できる' do
       select '高　3年　試験 太郎', from: '生徒'
       fill_in '登録名', with: '高校生面談'
-      attach_file "highfile[image]", "app/assets/images/git.svg"
+      attach_file 'highfile[image]', 'app/assets/images/git.svg'
       click_on '登録'
       expect(page).to have_content '高校生面談'
     end
