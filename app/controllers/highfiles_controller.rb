@@ -1,0 +1,2 @@
+class HighfilesController < ApplicationController
+end
