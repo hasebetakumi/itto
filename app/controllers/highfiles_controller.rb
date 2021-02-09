@@ -4,7 +4,7 @@ class HighfilesController < ApplicationController
         @highfile = Highfile.new
         
         # 一覧用データ渡し
-        @highfiles = Highfile.all.order(created_at: :DESC)
+        @highfiles = Highfile.all.order(created_at: :DESC).includes(:student, :user)
     end
     
     def create

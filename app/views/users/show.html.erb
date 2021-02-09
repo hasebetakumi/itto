@@ -144,6 +144,26 @@
         </div>
     </div>
     
+    <div class="student_data_result">
+        <table border="1" class="result_table">
+            <p class="table_title">登録した高校生ファイル</p>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>生徒氏名</th>
+                    <th>登録名</th>
+                    <th>ファイル名</th>
+                    <th>サムネイル</th>
+                    <th>登録者</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%= render partial: "highfiles/highfile", collection: @highfiles %>
+            </tbody>
+        </table>
+    </div>
+    
     <div class="report_group mypage_report_group">
     <p class="report_title">授業報告一覧</p>
         <ul class="all_report mypage_all_report">
