@@ -79,8 +79,8 @@ gem 'config'
 
 # image
 gem 'carrierwave'
-gem 'rmagick'
-# rmagikはImageMagick必要
+gem 'mini_magick'
+# carrierwaveはImageMagick必要
 
 group :production, :staging do
   gem 'unicorn'
