@@ -77,6 +77,11 @@ gem 'chart-js-rails', '~> 0.1.4' #=> 追加
 gem 'chartkick'
 gem 'config'
 
+# image
+gem 'carrierwave'
+gem 'rmagick'
+# rmagikはImageMagick必要
+
 group :production, :staging do
   gem 'unicorn'
 end
