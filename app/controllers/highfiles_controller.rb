@@ -8,7 +8,8 @@ class HighfilesController < ApplicationController
     end
     
     def create
-        
+        Highfile.create(create_params)
+        redirect_to new_highfile_path
     end
     
     def edit
@@ -24,5 +25,7 @@ class HighfilesController < ApplicationController
     end
     
     private
-    
+    def create_params
+        params.require(:highfile).permit(:student_id, :image_name, :image).merge(user_id: current_user.id)
+    end
 end
