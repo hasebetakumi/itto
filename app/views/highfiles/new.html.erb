@@ -1,0 +1,26 @@
+<body class="target_body">
+    <div class="student_form">
+        <%= form_for @highfile do |f| %>
+            <h3 class="form_group student_form_group student_title">
+                ファイル登録
+            </h3>
+            <div class="form_group student_form_group target_form_group">
+                <%= f.label :student_id, '生徒' %>
+                <%= f.collection_select :student_id , Student.where(classifying: 3).order(classifying: :ASC, grade: :ASC, family_name_kana: :ASC), :id, :student_info, {include_blank: '選択してください'}, { class: 'form-control' , required: true} %>
+            </div>
+            <div class="target_exam_coverage">
+                <div class="form_group student_form_group">
+                    <%= f.label :image_name, 'ファイルの名前' %>
+                    <%= f.text_field :image_name , class: 'form-control target_item', required: true %>
+                </div>
+                <div class="form_group student_form_group">
+                    <%= f.label :image, 'ファイル選択' %>
+                    <%= f.file_field :image , class: 'form-control target_item', required: true %>
+                </div>
+            </div>
+            <div class="report_form_group">
+                <%= f.submit '登録', class: 'btn_signup result_new_btn', required: true %>
+            </div>
+        <% end %>
+    </div>
+</body>
