@@ -1,0 +1,2 @@
+class Highfile < ApplicationRecord
+end
