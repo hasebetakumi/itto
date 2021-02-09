@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     get 'notestresults' => 'testresults#notestresult'
     resources :targets, only: [:new, :create, :destroy]
     resources :ittoexams, only: [:index, :new, :create, :edit, :update]
+    resources :highfiles, only: [:new, :create, :edit, :update, :destroy]
 end
