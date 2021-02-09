@@ -1,5 +1,6 @@
 <tr>
-    <td><%= link_to "削除", highfile_path(highfile.id), method: :delete, class: "report_info_link" %></td>
+    <td><%= link_to "削除", highfile_path(highfile.id), method: :delete, class: "edit_result_path" %></td>
+    <td><a href="/highfiles/<%= highfile.id %>" class="edit_result_path" >詳細</a></td>
     <td><%= highfile.student.student_info %></td>
     <td><%= highfile.image_name %></td>
     <td><%= highfile.image_identifier %></td>

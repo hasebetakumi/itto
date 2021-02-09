@@ -20,6 +20,10 @@ class HighfilesController < ApplicationController
         redirect_to new_highfile_path
     end
     
+    def show
+        @highfile = Highfile.find(params[:id])
+    end
+    
     private
     def create_params
         params.require(:highfile).permit(:student_id, :image_name, :image).merge(user_id: current_user.id)
