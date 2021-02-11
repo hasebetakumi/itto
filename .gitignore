@@ -28,8 +28,7 @@
 
 config/settings.local.yml
 config/settings/*.local.yml
-
-/config/environments/
-/config/initializers/devise.rb
+config/environments/*.local.yml
 
 /public/uploads/
+
