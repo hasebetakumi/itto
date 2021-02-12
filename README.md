@@ -16,6 +16,7 @@
 12. [更新履歴](#update)
 13. [バージョンアップ予定](#versionup)
 14. [ライセンス](#license)
+15. [config設定ファイル](#4file)
 
 <a id="link"></a>
 ## リンク
@@ -176,6 +177,24 @@ development:
 
 を記載。
 
+また、実行する環境ごとにURL、email、passwordが異なり、git pullするたびに変更し直すのが手間なので、<br>
+config/environments/<br>
+config/initializers/devise.rb<br>
+が、gitignoreされています。以下の4ファイルを作成し、中身を[こちら](#4file)に変更してください。
+
+```
+config/environments/development.rb
+config/environments/production.rb
+config/environments/test.rb
+config/initializers/devise.rb
+```
+
+これで開発環境でのメール認証設定は終了です。
+
+
+
+
+
 また、config/environments/production.rb、config/environments/development.rb、config/devise.rbの中の<br>
 
 ```
@@ -252,3 +271,5 @@ Copyright © 2021, Takumi Hasebe
 [Hasebe Takumi's Portfolio](https://intro.itto-takasaka.com/)
 
 連絡先：　pro.only.21@gmail.com
+
+<a id="4file"></a>
