@@ -33,4 +33,24 @@
             </div>
         <% end %>
     </div>
+    
+    <div class="student_data_result">
+        <table border="1" class="mypage_result_table">
+        <p class="table_title">登録した単語テスト結果</p>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>生徒</th>
+                    <th colspan="3">範囲</th>
+                    <th>得点</th>
+                    <th>満点</th>
+                    <th>日付</th>
+                    <th>登録者</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%= render @targets %>
+            </tbody>
+        </table>
+    </div>
 </body>

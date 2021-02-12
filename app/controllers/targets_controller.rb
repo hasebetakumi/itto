@@ -1,11 +1,12 @@
 class TargetsController < ApplicationController
   def new
     @target = Target.new
+    @targets = Target.all.includes(:student, :user).order(created_at: :DESC)
   end
 
   def create
     Target.create(create_params)
-    redirect_to student_path(params.require(:target)[:student_id])
+    redirect_to new_target_path
   end
 
   def destroy
