@@ -55,10 +55,11 @@
     <% if @student.classifying == 3 %>
         <div class="student_data_result">
             <table border="1" class="mypage_result_table">
-            <p class="table_title">単語テスト結果</p>
+            <p class="table_title">登録した単語テスト結果</p>
                 <thead>
                     <tr>
                         <th></th>
+                        <th>生徒</th>
                         <th colspan="3">範囲</th>
                         <th>得点</th>
                         <th>満点</th>
@@ -67,18 +68,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% @targets.each do |target| %>
-                        <tr>
-                            <td><%= link_to "削除", target_path(target.id), method: :delete, class: "edit_result_path" %></td>
-                            <td><%= target.exam_coverage_first %></td>
-                            <td>~</td>
-                            <td><%= target.exam_coverage_last %></td>
-                            <td><%= target.score %></td>
-                            <td><%= target.full_mark %></td>
-                            <td><%= target.created_at.to_s(:datetime_jp) %></td>
-                            <td><%= target.user.name %></td>
-                        </tr>
-                    <% end %>
+                    <%= render partial: "targets/target", collection: @targets %>
                 </tbody>
             </table>
         </div>

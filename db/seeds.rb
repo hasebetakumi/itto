@@ -71,3 +71,11 @@ User.create!(
     right: '1',
     name: 'テスト'
     )
+User.create!(
+    email: 'aaa@gmail.com',
+    password: 'Password-1',
+    confirmed_at: '2021-01-11 13:09:40',
+    confirmation_sent_at: '2021-01-11 13:09:22',
+    right: '1',
+    name: 'テスト01'
+    )
