@@ -23,7 +23,6 @@ describe 'Target', type: :feature do
       fill_in '得点　', with: '100'
       fill_in '　／　', with: '100'
       click_on '登録'
-      expect(page).to have_current_path student_path(@student.id), ignore_query: true
       expect(page).to have_content '2200'
     end
   end
