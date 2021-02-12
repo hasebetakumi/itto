@@ -93,7 +93,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'https://portfolio.itto-takasaka.com' }
+  config.action_mailer.default_url_options = { host: 'Settings.production[:url]' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -101,8 +101,8 @@ Rails.application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => "system.itto.takasaka@gmail.com", #先ほど作成した送信用Gmailアドレス
-    :password => "rplbdibydemdihbf", #2段階認証したアカウントで発行したアプリパスワード
+    :user_name => "Settings.development[:email]", #先ほど作成した送信用Gmailアドレス
+    :password => "Settings.development[:password]", #2段階認証したアカウントで発行したアプリパスワード
     :authentication => 'login'
   }
 end

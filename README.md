@@ -16,6 +16,7 @@
 12. [更新履歴](#update)
 13. [バージョンアップ予定](#versionup)
 14. [ライセンス](#license)
+15. [config設定ファイル](#4file)
 
 <a id="link"></a>
 ## リンク
@@ -252,3 +253,5 @@ Copyright © 2021, Takumi Hasebe
 [Hasebe Takumi's Portfolio](https://intro.itto-takasaka.com/)
 
 連絡先：　pro.only.21@gmail.com
+
+<a id="4file"></a>
