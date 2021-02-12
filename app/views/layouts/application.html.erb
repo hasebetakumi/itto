@@ -22,7 +22,7 @@
     </div>
     <div class='login_logout'>
       <% if user_signed_in? %>
-        <%= link_to "スクレポ", "https://sukurepo.azurewebsites.net/teachers_report/T_report_login", class: "main_menu_btn main_menu_btn_sukurepo" %>
+        <%= link_to "スクレポ", "https://sukurepo.azurewebsites.net/teachers_report/T_report_login", target: :_blank, rel: "noopener noreferrer", class: "main_menu_btn main_menu_btn_sukurepo" %>
         <%= link_to "マイページ", user_path(current_user), class: "main_menu_btn" %>
         <%= link_to "ログアウト", destroy_user_session_path , method: :delete, class: "btn_login_logout" %>
       <% else %>
