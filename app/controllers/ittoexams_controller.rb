@@ -50,12 +50,11 @@ class IttoexamsController < ApplicationController
       @student_ids = []
       students = Student.where(classifying: [1, 2])
       students.each do |student|
-          @student_ids << student.id
+        @student_ids << student.id
       end
       @student_ids.each do |student_id|
-          @none_students << Student.find(student_id)
-          @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana], a[:given_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana], b[:given_name_kana]]}
-
+        @none_students << Student.find(student_id)
+        @none_students = @none_students.sort { |a, b| [a[:classifying], a[:grade], a[:family_name_kana], a[:given_name_kana]] <=> [b[:classifying], b[:grade], b[:family_name_kana], b[:given_name_kana]] }
       end
     end
   end
