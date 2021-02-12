@@ -177,24 +177,6 @@ development:
 
 を記載。
 
-また、実行する環境ごとにURL、email、passwordが異なり、git pullするたびに変更し直すのが手間なので、<br>
-config/environments/<br>
-config/initializers/devise.rb<br>
-が、gitignoreされています。以下の4ファイルを作成し、中身を[こちら](#4file)に変更してください。
-
-```
-config/environments/development.rb
-config/environments/production.rb
-config/environments/test.rb
-config/initializers/devise.rb
-```
-
-これで開発環境でのメール認証設定は終了です。
-
-
-
-
-
 また、config/environments/production.rb、config/environments/development.rb、config/devise.rbの中の<br>
 
 ```
