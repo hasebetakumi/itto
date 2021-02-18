@@ -1,4 +1,4 @@
-<tr>
+<tr class="highfile_item">
     <% if highfile.user_id == current_user.id %>
         <td><%= link_to "削除", highfile_path(highfile.id), method: :delete, class: "edit_result_path" %></td>
     <% else %>
